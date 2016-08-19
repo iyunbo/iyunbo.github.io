@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Oracle | iyunbo - design with code]]></title>
+  <link href="http://www.iyunbo.org/blog/categories/oracle/atom.xml" rel="self"/>
+  <link href="http://www.iyunbo.org/"/>
+  <updated>2016-08-19T11:49:28+02:00</updated>
+  <id>http://www.iyunbo.org/</id>
+  <author>
+    <name><![CDATA[Yunbo WANG]]></name>
+    <email><![CDATA[iyunbo@iyunbo.org]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Oracle installation (10g+)]]></title>
+    <link href="http://www.iyunbo.org/Oracle/Linux/2011/02/27/oracle-installation-10g/"/>
+    <updated>2011-02-27T00:00:00+01:00</updated>
+    <id>http://www.iyunbo.org/Oracle/Linux/2011/02/27/oracle-installation-10g</id>
+    <content type="html"><![CDATA[<p><img src="http://www.iyunbo.org/images/posts/oraclesw.jpg" class="img-responsive" alt="Oracle"></p>
+
+<p><a href="http://www.oracle.com/" title="Oracle">Oracle</a> database installation is not simple procedure. And it may take hours even days if something goes wrong.
+Here are some useful tutorial links and explanations. Hopefully with these instructions, installing oracle database is no longer or less painful.</p>
+
+<!--more-->
+
+
+<ul>
+<li><strong>10g Express</strong></li>
+</ul>
+
+
+<p>Oracle 10g XE is a free version for development, deployment and distribution. The installation instructions are easy to follow:</p>
+
+<p><a href="https://help.ubuntu.com/community/Oracle" title="Oracle 10g XE on Ubuntu">How to install Oracle 10g XE on Ubuntu</a></p>
+
+<p><a href="http://www.ubuntugeek.com/how-to-install-oracle-10g-xe-in-64-bit-ubuntu.html" title="Oracle 10g XE 64bit on Ubuntu">How to install Oracle 10g XE on 64-bit Ubuntu</a></p>
+
+<ul>
+<li><strong>10g</strong></li>
+</ul>
+
+
+<p>Unlike XE version, the standard one is much harder to install, here is a very helpful guide:</p>
+
+<p><a href="http://www.akadia.com/services/ora_linux_install_10g.html" title="Oracle 10g on Linux">How to install Oracle 10g on Linux</a></p>
+
+<ul>
+<li><strong>11g</strong></li>
+</ul>
+
+
+<p>11g is by the time of this blog the latest released version, finding an installation guide should not be difficult with google. This is a good tutorial that I have tested and worked.</p>
+
+<p><a href="http://forums.oracle.com/forums/thread.jspa?threadID=1115155&amp;amp;tstart=0" title="Oracle 11g on Ubuntu">How to install Oracle 11g on Ubuntu</a></p>
+
+<ul>
+<li><strong>Startup the database</strong></li>
+</ul>
+
+
+<p>The following commands work only for user oracle, or the DBA user name you have created when you installed the database, oracle is the default DBA user name.
+To start the database after installation, first of all there are few things to check:</p>
+
+<p> gist 5555490 check_oracle_env.sh</p>
+
+<p>verify if the value corresponds to your database settings</p>
+
+<p>Now we can go</p>
+
+<p> gist 5555490 start_oracle.sh</p>
+
+<p>and by then you should see that the database has been started successfully.
+The job may not be finished yet, your should check if the listener is active :</p>
+
+<p> gist 5555490 start_lsnr.sh</p>
+
+<p>if the listener is already started, it will do nothing.
+We can now test the database connection:</p>
+
+<p> gist 5555490 test_connection.sh</p>
+
+<ul>
+<li><p><strong>Tips</strong></p>
+
+<ol>
+<li> LRM-00109: could not open parameter file, <a href="http://www.dba-oracle.com/bk_lrm_00109_could_not_open_parameter_file_string.htm" title="LRM-00109">here</a> is the expert&rsquo;s explanation and solution.</li>
+<li> Connect from a X-Windows enabled terminal with trusted X11 forwarding: > ssh -X oracle@server_hostname_or_ip</li>
+</ol>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

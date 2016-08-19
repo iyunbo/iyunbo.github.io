@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: J2EE | iyunbo - design with code]]></title>
+  <link href="http://www.iyunbo.org/blog/categories/j2ee/atom.xml" rel="self"/>
+  <link href="http://www.iyunbo.org/"/>
+  <updated>2016-08-19T11:49:28+02:00</updated>
+  <id>http://www.iyunbo.org/</id>
+  <author>
+    <name><![CDATA[Yunbo WANG]]></name>
+    <email><![CDATA[iyunbo@iyunbo.org]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Principles of Test Driven Development (TDD)]]></title>
+    <link href="http://www.iyunbo.org/J2EE/2011/02/28/principles-of-test-driven-development-tdd/"/>
+    <updated>2011-02-28T00:00:00+01:00</updated>
+    <id>http://www.iyunbo.org/J2EE/2011/02/28/principles-of-test-driven-development-tdd</id>
+    <content type="html"><![CDATA[<p><a href="http://en.wikipedia.org/wiki/Test-driven_development" title="TTD">TDD</a> is a great method in software design.
+Traditionally, the process of TDD consists of the following steps:
+1. Always write a unit test before everything else and of course il will fail
+1. Write some code to pass the test, the code can be inelegant
+1. Refactor the code
+1. Repeat all above</p>
+
+<p><img src="http://www.iyunbo.org/images/posts/tdd_flow.png" class="img-responsive" alt="A quick overview of the Test-driven development"></p>
+
+<p>Test-driven does not simply verify the correctness of the code but more important it <strong>drives the design</strong>.</p>
+
+<!--more-->
+
+
+<p>Here are the great principles :</p>
+
+<ul>
+<li><strong>Write test before the implementation</strong>. This ensures in this way that all written code is covered by at least one test. This gives the programming team, and subsequent users, a greater level of confidence in the code.</li>
+<li><strong>A Contract Design Pattern</strong>. The programmer is concerned with interface before implementation. It approaches the code through usage rather than assumptions and preconceptions.</li>
+<li><strong>Take small steps when required</strong>. It allows a programmer to focus on the task at hand as the first goal is to make the test pass.</li>
+<li><strong>The test is a form of specs</strong>, this drives programmer to understand the specs before all because she will have to translate it into test code later. Tests are not specs, of course not, but a test should meet the specs in some way.</li>
+<li><strong>Test is the first level design</strong>. When we write a unit test, we begin to divide a feature into parts. The more test is simple and clear, the more code is going to be clear and simple.</li>
+</ul>
+
+
+<p>Besides theses principles, in practice, the pure TDD shows some issues and inefficiency :</p>
+
+<ul>
+<li>Tests are not real software code, there is a risk of losing productivity because of too much test code written. This is not exactly a TDD issue but a design issue, if the test code is complex this means probably the implementation does too much work and should be divided into subsets.</li>
+<li>In the step 2, we are intended to write code just for passing the test without consideration of code quality and we achieve this by refactoring later. That indicates we will always rework our code. Personally, I don&rsquo;t like it. And refactoring may violate the original idea of TDD : design before coding, but refactoring here just seems like some mechanic cleaning job. Can&rsquo;t we write good quality code in the first place using all OO design principles and code conventions? Once done, the code should be reliable and maintainable.</li>
+<li>Write test before implementation, it sounds very strange, how can we run a test without any implementation code? How we compile the test if the feature class is not yet written, but if the class is created even with just a skeleton, does this mean we write something else before the test and this is not test-driven.</li>
+</ul>
+
+
+<p>In daily work, the TDD is not easy to apply at first because it appears to add some extra work and it changes the regular habits of programming, and some or all of the above issues are not well concerned. That&rsquo;s why some people failed and blamed TDD as an anti-productivity method. My goal here is to make this fantastic method not hard to apply and really productive.</p>
+
+<p>I will show in another blog how in detail these issues can be resolved and the code could be written in a J2EE project by using good practice and appropriate tools. Here I want to underline some guidelines of using the TDD method:</p>
+
+<ul>
+<li><strong>TDD is about design not about test</strong>. Use the test code to design not just to verify the correctness. Yes we write some extra code than we needed for the feature of the software, but this code is valuable : it&rsquo;s a validation, it&rsquo;s a design and it can even be a spec document.</li>
+<li><strong>Test is for requirement not for implementation</strong>. Let the test guide the implementation. We build the contract first, then we implement it.</li>
+<li><strong>Keep it simple and clear</strong>. A test or an interface is written for one requirement not some requirements. A technic to verify about this is by asking what does it test or what does it do? The answer should not contain the word &ldquo;and&rdquo;.</li>
+<li><strong>Test before program or interface before implementation</strong>. Stick to it, this is the &ldquo;top down&rdquo; principle. Think and define the contract before realize it.  Ask yourself before writing any code : what does it do? What does it expect? What are the rules?</li>
+<li><strong>TDD is one method and mustn&rsquo;t ignore other OO design principles</strong>. Good practice, code convention, design patterns are encouraged to use other than ignored while applying the method.</li>
+<li><strong>TDD is a tool, use it do not suffer it</strong>. A tool helps you, not slow you down, if the method drives you crazy, there must be something wrong, don&rsquo;t ignore it, find it and try to manage it in an easier way.</li>
+</ul>
+
+
+<h3>References</h3>
+
+<hr />
+
+<p>You can find some good examples regarding TDD on the net:</p>
+
+<ul>
+<li>An other nice introduction on TDD with a PHP Demonstration</li>
+</ul>
+
+
+<p><a href="http://diogoosorio.com/blog/entry/test-driven-development-tdd-using-phpunit" title="TDD with PHP"><img src="http://diogoosorio.com/public/images/blog/f8ad5ba0677204b012aa267f739b2f92.jpg" class="img-responsive" alt="TDD on PHP"></a></p>
+
+<ul>
+<li>An excellent demenstration of TDD on JAVA practice</li>
+</ul>
+
+
+<center><iframe src="http://player.vimeo.com/video/10569751" width="500" height="375" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></center>
+
+
+<ul>
+<li>A nice book of TDD: Test Driven Development: By Example, <a href="http://en.wikipedia.org/wiki/Kent_Beck" title="Kent Beck">Kent Beck</a>, <a href="http://en.wikipedia.org/wiki/Addison-Wesley_Longman" title="Addison-Wesley Longman">Addison-Wesley Longman</a>, 2002, ISBN 0-321-14653-0, ISBN 978-0321146533</li>
+</ul>
+
+
+<p>Wish you enjoined it.</p>
+]]></content>
+  </entry>
+  
+</feed>

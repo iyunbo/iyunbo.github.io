@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ruby | iyunbo - design with code]]></title>
+  <link href="http://www.iyunbo.org/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://www.iyunbo.org/"/>
+  <updated>2016-08-19T11:49:28+02:00</updated>
+  <id>http://www.iyunbo.org/</id>
+  <author>
+    <name><![CDATA[Yunbo WANG]]></name>
+    <email><![CDATA[iyunbo@iyunbo.org]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress makes blogging enjoyable]]></title>
+    <link href="http://www.iyunbo.org/Web/Ruby/2013/05/08/octopress/"/>
+    <updated>2013-05-08T13:07:00+02:00</updated>
+    <id>http://www.iyunbo.org/Web/Ruby/2013/05/08/octopress</id>
+    <content type="html"><![CDATA[<p><img src="http://www.iyunbo.org/images/posts/octopress_logo.png " class="img-responsive" alt="Octo is pressing!"></p>
+
+<p><a href="http://octopress.org/" title="Octopress">Octopress</a> is a framework designed for Jekyll, the static blogging engine powering Github Pages.
+Thanks to Octopress, code blogging is easy and beautiful.
+I like the way how Octopress is documented: simple and useful.
+Make sure to spend 30 minutes checking them out before using it: <a href="http://octopress.org/docs" title="Octopress Documentation">Octopress Documentation</a>.</p>
+
+<!--more-->
+
+
+<p>As <a href="https://github.com/imathis" title="Brandon Mathis">Brandon Mathis</a> stressed, Octopress is a blogging framework for hackers. But don&rsquo;t think of Octopress as something extraordinary and complex.
+At least, you should be comfortable running shell commands and familiar with the basics of Git.
+How to know if it&rsquo;s the right tool for you? Just feel the joy then it&rsquo;s perfect for you!</p>
+]]></content>
+  </entry>
+  
+</feed>

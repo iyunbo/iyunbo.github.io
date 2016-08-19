@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Linux | iyunbo - design with code]]></title>
+  <link href="http://www.iyunbo.org/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://www.iyunbo.org/"/>
+  <updated>2016-08-19T11:49:28+02:00</updated>
+  <id>http://www.iyunbo.org/</id>
+  <author>
+    <name><![CDATA[Yunbo WANG]]></name>
+    <email><![CDATA[iyunbo@iyunbo.org]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ship software faster with container]]></title>
+    <link href="http://www.iyunbo.org/Linux/Virtualization/2014/06/14/ship-software-faster-with-container/"/>
+    <updated>2014-06-14T19:10:00+02:00</updated>
+    <id>http://www.iyunbo.org/Linux/Virtualization/2014/06/14/ship-software-faster-with-container</id>
+    <content type="html"><![CDATA[<p><img class="img-responsive" src="http://www.docker.com/static/img/homepage/docker-whale-home-logo+.png" alt="Docker"></p>
+
+<p>How many times we heared about &ldquo;But this works in my computer&rdquo;, &ldquo;We could never seen this in other environments&rdquo;, &ldquo;6 weeks spent just to makt sure it will work in production, but we can never be 100% sure &hellip;&rdquo;</p>
+
+<p>If I am from IT department, I would pay a lot to stop these frustrating problems. The good news is that <a href="https://docker.io">Docker</a> made that possible. As it promises, Docker let you &ldquo;Develop, Ship and Run Any Application, Anywhere&rdquo;. The <a href="http://blog.docker.com/2014/06/its-here-docker-1-0/">stable official V1.0 of Docker is released on 2014/06/09</a>. From then, the world of virtualization step into the next generation: <strong>Containers</strong>.</p>
+
+<!-- more -->
+
+
+<h4>why containers are better</h4>
+
+<p>So, what&rsquo;s the big diffrence between containers and virtual machines? In shord words, containers are more lightweighted. Containers are like &ldquo;processes&rdquo; and virtual machines are like, by definition,  &ldquo;machines&rdquo;. Obviously, machines have lots of software level overheads: operating system, drivers.</p>
+
+<p><img src="http://www.programering.com/images/remote/ZnJvbT1vc2NoaW5hJnVybD1uQm5hdWNETXprVE01OFZPQk4zUWZOak00QWpOeDhTT3hJVE12TVRNd0l6TGxOV1l3TjNMelJXWXZ4R2MxOUNkbDVtTGg1V2FvTjJjdjV5WXBSWFkwTjNMdm9EYzBSSGE.jpg" alt="container vs vm" class="img-responsive"></p>
+
+<p>As this picture shows, virtual machines are managed by <a href="http://en.wikipedia.org/wiki/Hypervisor">Hypervisor</a>, which runs different operating systems, each of them is isolated form others. We call this OS isolation. On the other hand, containers are managed by container engine (Docker), which runs different applications, each application is not aware of others. This is called process isolation. The idea here is that our actual need is applications not the operating system, so just providing the necessary context for each process running upon one operating system other than running multiple operating systems saves a lot of computer resouces. It only tackes seconds to start a container and the application is already running. How much time it takes to start an operating system and all the initial services?</p>
+
+<h4>what containers cannot do</h4>
+
+<p>Of cause, containers have drawbacks, as we know containers run on one operating system, for example Docker containers run on Linux. It is not possible to run Windows application on a Linux container. So containers are OS dependent.</p>
+
+<h4>what Docker offers</h4>
+
+<blockquote><p>Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications. Consisting of Docker Engine, a portable, lightweight runtime and packaging tool, and Docker Hub, a cloud service for sharing applications and automating workflows, Docker enables apps to be quickly assembled from components and eliminates the friction between development, QA, and production environments. As a result, IT can ship faster and run the same app, unchanged, on laptops, data center VMs, and any cloud.</p>
+
+<p><em>www.docker.com</em></p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using Git Efficiently]]></title>
+    <link href="http://www.iyunbo.org/Linux/2013/05/18/using-git-efficiently/"/>
+    <updated>2013-05-18T13:00:00+02:00</updated>
+    <id>http://www.iyunbo.org/Linux/2013/05/18/using-git-efficiently</id>
+    <content type="html"><![CDATA[<p><img src="http://www.iyunbo.org/images/posts/git.jpg" class="img-responsive" alt="Git branching"></p>
+
+<p>Git is a free and open source distributed version control system. Git is designed very differently from tranditional version control system like Subversion (SVN). It may confuse a SVN user at first. In oder to benefit Git&rsquo;s effeciency and speed, it&rsquo;s really important to uderstand it and use it wisely. This article is not a &ldquo;getting started&rdquo; tutorial neither a deep discussion of Git, but will provide relevant tips, references, links to help professionals understanding and using Git for their daily work. I suppose that you, my dear reader, have already the basic undersatding on version control system such as <a href="http://subversion.tigris.org/" title="SVN">SVN</a> or <a href="http://cvs.nongnu.org/" title="CVS">CVS</a>.</p>
+
+<!--more-->
+
+
+<h3>Uderstanding Git</h3>
+
+<p>first of all, make sure those basics are clearly understood:</p>
+
+<ul>
+<li>Git is distrubuted, you have everything the server has</li>
+<li>Git is a story of snapshorts not deltas</li>
+<li>Think Git as a filesystem</li>
+<li>Git is fast because it works locally most of the time</li>
+<li>3 states: committed, modified, and staged</li>
+<li>GIT use SHA-1 algorithm to hash cryptographically its contents</li>
+</ul>
+
+
+<p>This <a href="http://git-scm.com/book/en/Getting-Started" title="Git basics">&ldquo;getting started&rdquo; documentation</a> explains very well these basics in a simple way. Understanding the differences between Git and SVN in the first place is vital because this is where mistakes often happen. <a href="http://boxysystems.com/index.php/5-fundamental-differences-between-git-svn/" title="Differences between Git &amp; SVN">This article</a> explains very briefly the fundamental differences between the two systems.</p>
+
+<p>Now, let&rsquo;s try Git. If you haven&rsquo;t installed Git yet, here are links for <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git" title="Installing Git">installing</a> and <a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup" title="Git first time Setup">setup</a>.</p>
+
+<h3>Working with Git</h3>
+
+<p><a href="http://git-scm.com/book/en/Git-Basics" title="Git Basic Commands">This documentation</a> explains very well the basic daily work commands. There is no need to say more, I just sum up the most used commands as following:</p>
+
+<ul>
+<li>Recording changes to the repository</li>
+</ul>
+
+
+<p>gist 5605116 git_recording_changes.sh</p>
+
+<ul>
+<li>Viewing commits history</li>
+</ul>
+
+
+<p> gist 5605116 git_log.sh</p>
+
+<ul>
+<li>Commit message model</li>
+</ul>
+
+
+<p>gist 5605116 git_commit_message.txt</p>
+
+<ul>
+<li>Undoing Things</li>
+</ul>
+
+
+<p>gist 5605116 git_undoing.sh</p>
+
+<p><strong>Be careful, because you can’t always revert some of these undos. This is one of the few areas in Git where you may lose some work if you do it wrong.</strong>
+Anything that is committed in Git can always be recovered. Even commits that were on branches that were deleted or commits that were overwritten with an &mdash;amend commit can be recovered.  However, anything you lose that was never committed is likely never to be seen again. It&rsquo;s good practice to commit things regularly.</p>
+
+<ul>
+<li>Working with Remotes</li>
+</ul>
+
+
+<p>gist 5605116 git_remote.sh</p>
+
+<ul>
+<li>Making Git easier</li>
+</ul>
+
+
+<p>Here is a BASH script to make Git experience simpler, easier and familiar.</p>
+
+<p>gist 5605116 git_easier.sh</p>
+
+<h3>Branching with Git</h3>
+
+<p>Branching is the &ldquo;killer feature&rdquo; in Git, it changes the way we develop. I still remember how painful to manager a branch with SVN. But with Git, it&rsquo;s so lightweight that swiching between branches is almost instantaneous. You can read <a href="http://git-scm.com/book/en/Git-Branching" title="Git branching">this documentation</a> to know about Git branching. I list out just some important tips:</p>
+
+<ul>
+<li>Understand what branch is in Git is most essential, <a href="http://git-scm.com/book/en/Git-Branching-What-a-Branch-Is" title="Git Branching">this documentation</a> helps you understand it very well</li>
+<li>Branch &amp; Merge are day-to-day tasks, here is a basic story to show how these things are done</li>
+</ul>
+
+
+<p>gist 5605116 git_branch_story.sh</p>
+
+<ul>
+<li>The above example just shows a simple use case, however the real life work are more complicated and branches are managed by different levels of stability especially when dealing with large projects.</li>
+</ul>
+
+
+<p><img src="http://www.iyunbo.org/images/posts/git_branch_workflow.png" class="img-responsive" alt="Git branching"></p>
+
+<p>In Git it’s common to create, work on, merge, and delete branches several times a day. Comparing to SVN, branches are largely used and encouraged in Git giving its effeciency and simplicity. Remember all those merge, branch operations are managed loacally, no server communication is happening.</p>
+
+<ul>
+<li>See <a href="http://git-scm.com/book/en/Git-Branching-Remote-Branches" title="Git Remote Branching">this documentation</a> for Remote Branches management</li>
+<li>And <a href="http://git-scm.com/book/en/Git-Branching-Rebasing" title="Git Rebasing">this documentation</a> for Rebasing.</li>
+</ul>
+
+
+<p>Rebasing results in changes as the merge, but offers a cleaner commit history. The following commands are often used when dealing with rebasing.</p>
+
+<p>gist 5605116 git_rebasing.sh</p>
+
+<p><strong>NEVER, never, never rebase commits that you have pushed to a public repository. This could generate a lot of useless work for everybody of your team</strong></p>
+
+<h3>More</h3>
+
+<p>At this point, you should be confortable with Git basic commands and concepts, but for working on real projects, you still need define a workflow model and some rules for your team, here is a list of very good guidelines and practical recommandations:</p>
+
+<ul>
+<li><a href="http://git-scm.com/book/en/Distributed-Git-Contributing-to-a-Project" title="Projects Workflows">Common project workflows</a></li>
+<li><a href="http://stackoverflow.com/a/7589612/644774" title="Tips for merging">Tips for merging</a></li>
+<li>The book: <a href="http://git-scm.com/book/en" title="Pro Git">Pro Git</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Oracle installation (10g+)]]></title>
+    <link href="http://www.iyunbo.org/Oracle/Linux/2011/02/27/oracle-installation-10g/"/>
+    <updated>2011-02-27T00:00:00+01:00</updated>
+    <id>http://www.iyunbo.org/Oracle/Linux/2011/02/27/oracle-installation-10g</id>
+    <content type="html"><![CDATA[<p><img src="http://www.iyunbo.org/images/posts/oraclesw.jpg" class="img-responsive" alt="Oracle"></p>
+
+<p><a href="http://www.oracle.com/" title="Oracle">Oracle</a> database installation is not simple procedure. And it may take hours even days if something goes wrong.
+Here are some useful tutorial links and explanations. Hopefully with these instructions, installing oracle database is no longer or less painful.</p>
+
+<!--more-->
+
+
+<ul>
+<li><strong>10g Express</strong></li>
+</ul>
+
+
+<p>Oracle 10g XE is a free version for development, deployment and distribution. The installation instructions are easy to follow:</p>
+
+<p><a href="https://help.ubuntu.com/community/Oracle" title="Oracle 10g XE on Ubuntu">How to install Oracle 10g XE on Ubuntu</a></p>
+
+<p><a href="http://www.ubuntugeek.com/how-to-install-oracle-10g-xe-in-64-bit-ubuntu.html" title="Oracle 10g XE 64bit on Ubuntu">How to install Oracle 10g XE on 64-bit Ubuntu</a></p>
+
+<ul>
+<li><strong>10g</strong></li>
+</ul>
+
+
+<p>Unlike XE version, the standard one is much harder to install, here is a very helpful guide:</p>
+
+<p><a href="http://www.akadia.com/services/ora_linux_install_10g.html" title="Oracle 10g on Linux">How to install Oracle 10g on Linux</a></p>
+
+<ul>
+<li><strong>11g</strong></li>
+</ul>
+
+
+<p>11g is by the time of this blog the latest released version, finding an installation guide should not be difficult with google. This is a good tutorial that I have tested and worked.</p>
+
+<p><a href="http://forums.oracle.com/forums/thread.jspa?threadID=1115155&amp;amp;tstart=0" title="Oracle 11g on Ubuntu">How to install Oracle 11g on Ubuntu</a></p>
+
+<ul>
+<li><strong>Startup the database</strong></li>
+</ul>
+
+
+<p>The following commands work only for user oracle, or the DBA user name you have created when you installed the database, oracle is the default DBA user name.
+To start the database after installation, first of all there are few things to check:</p>
+
+<p> gist 5555490 check_oracle_env.sh</p>
+
+<p>verify if the value corresponds to your database settings</p>
+
+<p>Now we can go</p>
+
+<p> gist 5555490 start_oracle.sh</p>
+
+<p>and by then you should see that the database has been started successfully.
+The job may not be finished yet, your should check if the listener is active :</p>
+
+<p> gist 5555490 start_lsnr.sh</p>
+
+<p>if the listener is already started, it will do nothing.
+We can now test the database connection:</p>
+
+<p> gist 5555490 test_connection.sh</p>
+
+<ul>
+<li><p><strong>Tips</strong></p>
+
+<ol>
+<li> LRM-00109: could not open parameter file, <a href="http://www.dba-oracle.com/bk_lrm_00109_could_not_open_parameter_file_string.htm" title="LRM-00109">here</a> is the expert&rsquo;s explanation and solution.</li>
+<li> Connect from a X-Windows enabled terminal with trusted X11 forwarding: > ssh -X oracle@server_hostname_or_ip</li>
+</ol>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

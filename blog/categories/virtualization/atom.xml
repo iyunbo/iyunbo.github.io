@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Virtualization | iyunbo - design with code]]></title>
+  <link href="http://www.iyunbo.org/blog/categories/virtualization/atom.xml" rel="self"/>
+  <link href="http://www.iyunbo.org/"/>
+  <updated>2016-08-19T11:49:28+02:00</updated>
+  <id>http://www.iyunbo.org/</id>
+  <author>
+    <name><![CDATA[Yunbo WANG]]></name>
+    <email><![CDATA[iyunbo@iyunbo.org]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ship software faster with container]]></title>
+    <link href="http://www.iyunbo.org/Linux/Virtualization/2014/06/14/ship-software-faster-with-container/"/>
+    <updated>2014-06-14T19:10:00+02:00</updated>
+    <id>http://www.iyunbo.org/Linux/Virtualization/2014/06/14/ship-software-faster-with-container</id>
+    <content type="html"><![CDATA[<p><img class="img-responsive" src="http://www.docker.com/static/img/homepage/docker-whale-home-logo+.png" alt="Docker"></p>
+
+<p>How many times we heared about &ldquo;But this works in my computer&rdquo;, &ldquo;We could never seen this in other environments&rdquo;, &ldquo;6 weeks spent just to makt sure it will work in production, but we can never be 100% sure &hellip;&rdquo;</p>
+
+<p>If I am from IT department, I would pay a lot to stop these frustrating problems. The good news is that <a href="https://docker.io">Docker</a> made that possible. As it promises, Docker let you &ldquo;Develop, Ship and Run Any Application, Anywhere&rdquo;. The <a href="http://blog.docker.com/2014/06/its-here-docker-1-0/">stable official V1.0 of Docker is released on 2014/06/09</a>. From then, the world of virtualization step into the next generation: <strong>Containers</strong>.</p>
+
+<!-- more -->
+
+
+<h4>why containers are better</h4>
+
+<p>So, what&rsquo;s the big diffrence between containers and virtual machines? In shord words, containers are more lightweighted. Containers are like &ldquo;processes&rdquo; and virtual machines are like, by definition,  &ldquo;machines&rdquo;. Obviously, machines have lots of software level overheads: operating system, drivers.</p>
+
+<p><img src="http://www.programering.com/images/remote/ZnJvbT1vc2NoaW5hJnVybD1uQm5hdWNETXprVE01OFZPQk4zUWZOak00QWpOeDhTT3hJVE12TVRNd0l6TGxOV1l3TjNMelJXWXZ4R2MxOUNkbDVtTGg1V2FvTjJjdjV5WXBSWFkwTjNMdm9EYzBSSGE.jpg" alt="container vs vm" class="img-responsive"></p>
+
+<p>As this picture shows, virtual machines are managed by <a href="http://en.wikipedia.org/wiki/Hypervisor">Hypervisor</a>, which runs different operating systems, each of them is isolated form others. We call this OS isolation. On the other hand, containers are managed by container engine (Docker), which runs different applications, each application is not aware of others. This is called process isolation. The idea here is that our actual need is applications not the operating system, so just providing the necessary context for each process running upon one operating system other than running multiple operating systems saves a lot of computer resouces. It only tackes seconds to start a container and the application is already running. How much time it takes to start an operating system and all the initial services?</p>
+
+<h4>what containers cannot do</h4>
+
+<p>Of cause, containers have drawbacks, as we know containers run on one operating system, for example Docker containers run on Linux. It is not possible to run Windows application on a Linux container. So containers are OS dependent.</p>
+
+<h4>what Docker offers</h4>
+
+<blockquote><p>Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications. Consisting of Docker Engine, a portable, lightweight runtime and packaging tool, and Docker Hub, a cloud service for sharing applications and automating workflows, Docker enables apps to be quickly assembled from components and eliminates the friction between development, QA, and production environments. As a result, IT can ship faster and run the same app, unchanged, on laptops, data center VMs, and any cloud.</p>
+
+<p><em>www.docker.com</em></p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>
