@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Project | iyunbo - design with code]]></title>
-  <link href="http://www.iyunbo.org/blog/categories/project/atom.xml" rel="self"/>
-  <link href="http://www.iyunbo.org/"/>
-  <updated>2016-08-19T11:49:28+02:00</updated>
-  <id>http://www.iyunbo.org/</id>
+  <link href="http://iyunbo.github.io/blog/categories/project/atom.xml" rel="self"/>
+  <link href="http://iyunbo.github.io/"/>
+  <updated>2016-08-19T15:03:01+02:00</updated>
+  <id>http://iyunbo.github.io/</id>
   <author>
     <name><![CDATA[Yunbo WANG]]></name>
     <email><![CDATA[iyunbo@iyunbo.org]]></email>
@@ -15,14 +15,14 @@
   
   <entry>
     <title type="html"><![CDATA[Gemini Architecture]]></title>
-    <link href="http://www.iyunbo.org/Project/Web/2013/05/16/gemini/"/>
+    <link href="http://iyunbo.github.io/Project/Web/2013/05/16/gemini/"/>
     <updated>2013-05-16T00:11:00+02:00</updated>
-    <id>http://www.iyunbo.org/Project/Web/2013/05/16/gemini</id>
+    <id>http://iyunbo.github.io/Project/Web/2013/05/16/gemini</id>
     <content type="html"><![CDATA[<p>Gemini是一个基于移动互联网络的交互式游戏。本文从技术层面来阐述Gemini的构架，分为物理构架和应用构架。Gemini的一大特性是利用Google App Engine Cloud Platform（以下称为GAE）作为底层的平台支持。</p>
 
 <h3>物理构架</h3>
 
-<p><img src="http://www.iyunbo.org/images/projects/gemini-architecture-infrastructure.jpg" class="img-responsive" alt="Infrastructure"></p>
+<p><img src="http://iyunbo.github.io/images/projects/gemini-architecture-infrastructure.jpg" class="img-responsive" alt="Infrastructure"></p>
 
 <!--more-->
 
@@ -38,7 +38,7 @@
 
 <p>下图为应用构架：</p>
 
-<p><img src="http://www.iyunbo.org/images/projects/gemini-architecture-application.jpg" class="img-responsive" alt="Application Architecture"></p>
+<p><img src="http://iyunbo.github.io/images/projects/gemini-architecture-application.jpg" class="img-responsive" alt="Application Architecture"></p>
 
 <p>由于有了完善的云端支持，Gemini应用构架完全建立在GAE提供的物理支持和各种软件服务之上。Gemini服务器端应用应该趋向于结构的简化和服务的重用，这个应用构架的总体设计要点是：</p>
 

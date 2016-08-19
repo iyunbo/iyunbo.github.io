@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ruby | iyunbo - design with code]]></title>
-  <link href="http://www.iyunbo.org/blog/categories/ruby/atom.xml" rel="self"/>
-  <link href="http://www.iyunbo.org/"/>
-  <updated>2016-08-19T11:49:28+02:00</updated>
-  <id>http://www.iyunbo.org/</id>
+  <link href="http://iyunbo.github.io/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://iyunbo.github.io/"/>
+  <updated>2016-08-19T15:03:01+02:00</updated>
+  <id>http://iyunbo.github.io/</id>
   <author>
     <name><![CDATA[Yunbo WANG]]></name>
     <email><![CDATA[iyunbo@iyunbo.org]]></email>
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[Octopress makes blogging enjoyable]]></title>
-    <link href="http://www.iyunbo.org/Web/Ruby/2013/05/08/octopress/"/>
+    <link href="http://iyunbo.github.io/Web/Ruby/2013/05/08/octopress/"/>
     <updated>2013-05-08T13:07:00+02:00</updated>
-    <id>http://www.iyunbo.org/Web/Ruby/2013/05/08/octopress</id>
-    <content type="html"><![CDATA[<p><img src="http://www.iyunbo.org/images/posts/octopress_logo.png " class="img-responsive" alt="Octo is pressing!"></p>
+    <id>http://iyunbo.github.io/Web/Ruby/2013/05/08/octopress</id>
+    <content type="html"><![CDATA[<p><img src="http://iyunbo.github.io/images/posts/octopress_logo.png " class="img-responsive" alt="Octo is pressing!"></p>
 
 <p><a href="http://octopress.org/" title="Octopress">Octopress</a> is a framework designed for Jekyll, the static blogging engine powering Github Pages.
 Thanks to Octopress, code blogging is easy and beautiful.

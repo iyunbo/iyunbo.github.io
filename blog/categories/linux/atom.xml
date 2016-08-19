@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Linux | iyunbo - design with code]]></title>
-  <link href="http://www.iyunbo.org/blog/categories/linux/atom.xml" rel="self"/>
-  <link href="http://www.iyunbo.org/"/>
-  <updated>2016-08-19T11:49:28+02:00</updated>
-  <id>http://www.iyunbo.org/</id>
+  <link href="http://iyunbo.github.io/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://iyunbo.github.io/"/>
+  <updated>2016-08-19T15:03:01+02:00</updated>
+  <id>http://iyunbo.github.io/</id>
   <author>
     <name><![CDATA[Yunbo WANG]]></name>
     <email><![CDATA[iyunbo@iyunbo.org]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ship software faster with container]]></title>
-    <link href="http://www.iyunbo.org/Linux/Virtualization/2014/06/14/ship-software-faster-with-container/"/>
+    <link href="http://iyunbo.github.io/Linux/Virtualization/2014/06/14/ship-software-faster-with-container/"/>
     <updated>2014-06-14T19:10:00+02:00</updated>
-    <id>http://www.iyunbo.org/Linux/Virtualization/2014/06/14/ship-software-faster-with-container</id>
+    <id>http://iyunbo.github.io/Linux/Virtualization/2014/06/14/ship-software-faster-with-container</id>
     <content type="html"><![CDATA[<p><img class="img-responsive" src="http://www.docker.com/static/img/homepage/docker-whale-home-logo+.png" alt="Docker"></p>
 
 <p>How many times we heared about &ldquo;But this works in my computer&rdquo;, &ldquo;We could never seen this in other environments&rdquo;, &ldquo;6 weeks spent just to makt sure it will work in production, but we can never be 100% sure &hellip;&rdquo;</p>
@@ -49,10 +49,10 @@
   
   <entry>
     <title type="html"><![CDATA[Using Git Efficiently]]></title>
-    <link href="http://www.iyunbo.org/Linux/2013/05/18/using-git-efficiently/"/>
+    <link href="http://iyunbo.github.io/Linux/2013/05/18/using-git-efficiently/"/>
     <updated>2013-05-18T13:00:00+02:00</updated>
-    <id>http://www.iyunbo.org/Linux/2013/05/18/using-git-efficiently</id>
-    <content type="html"><![CDATA[<p><img src="http://www.iyunbo.org/images/posts/git.jpg" class="img-responsive" alt="Git branching"></p>
+    <id>http://iyunbo.github.io/Linux/2013/05/18/using-git-efficiently</id>
+    <content type="html"><![CDATA[<p><img src="http://iyunbo.github.io/images/posts/git.jpg" class="img-responsive" alt="Git branching"></p>
 
 <p>Git is a free and open source distributed version control system. Git is designed very differently from tranditional version control system like Subversion (SVN). It may confuse a SVN user at first. In oder to benefit Git&rsquo;s effeciency and speed, it&rsquo;s really important to uderstand it and use it wisely. This article is not a &ldquo;getting started&rdquo; tutorial neither a deep discussion of Git, but will provide relevant tips, references, links to help professionals understanding and using Git for their daily work. I suppose that you, my dear reader, have already the basic undersatding on version control system such as <a href="http://subversion.tigris.org/" title="SVN">SVN</a> or <a href="http://cvs.nongnu.org/" title="CVS">CVS</a>.</p>
 
@@ -145,7 +145,7 @@ Anything that is committed in Git can always be recovered. Even commits that wer
 </ul>
 
 
-<p><img src="http://www.iyunbo.org/images/posts/git_branch_workflow.png" class="img-responsive" alt="Git branching"></p>
+<p><img src="http://iyunbo.github.io/images/posts/git_branch_workflow.png" class="img-responsive" alt="Git branching"></p>
 
 <p>In Git it’s common to create, work on, merge, and delete branches several times a day. Comparing to SVN, branches are largely used and encouraged in Git giving its effeciency and simplicity. Remember all those merge, branch operations are managed loacally, no server communication is happening.</p>
 
@@ -176,10 +176,10 @@ Anything that is committed in Git can always be recovered. Even commits that wer
   
   <entry>
     <title type="html"><![CDATA[Oracle installation (10g+)]]></title>
-    <link href="http://www.iyunbo.org/Oracle/Linux/2011/02/27/oracle-installation-10g/"/>
+    <link href="http://iyunbo.github.io/Oracle/Linux/2011/02/27/oracle-installation-10g/"/>
     <updated>2011-02-27T00:00:00+01:00</updated>
-    <id>http://www.iyunbo.org/Oracle/Linux/2011/02/27/oracle-installation-10g</id>
-    <content type="html"><![CDATA[<p><img src="http://www.iyunbo.org/images/posts/oraclesw.jpg" class="img-responsive" alt="Oracle"></p>
+    <id>http://iyunbo.github.io/Oracle/Linux/2011/02/27/oracle-installation-10g</id>
+    <content type="html"><![CDATA[<p><img src="http://iyunbo.github.io/images/posts/oraclesw.jpg" class="img-responsive" alt="Oracle"></p>
 
 <p><a href="http://www.oracle.com/" title="Oracle">Oracle</a> database installation is not simple procedure. And it may take hours even days if something goes wrong.
 Here are some useful tutorial links and explanations. Hopefully with these instructions, installing oracle database is no longer or less painful.</p>

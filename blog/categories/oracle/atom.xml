@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Oracle | iyunbo - design with code]]></title>
-  <link href="http://www.iyunbo.org/blog/categories/oracle/atom.xml" rel="self"/>
-  <link href="http://www.iyunbo.org/"/>
-  <updated>2016-08-19T11:49:28+02:00</updated>
-  <id>http://www.iyunbo.org/</id>
+  <link href="http://iyunbo.github.io/blog/categories/oracle/atom.xml" rel="self"/>
+  <link href="http://iyunbo.github.io/"/>
+  <updated>2016-08-19T15:03:01+02:00</updated>
+  <id>http://iyunbo.github.io/</id>
   <author>
     <name><![CDATA[Yunbo WANG]]></name>
     <email><![CDATA[iyunbo@iyunbo.org]]></email>
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[Oracle installation (10g+)]]></title>
-    <link href="http://www.iyunbo.org/Oracle/Linux/2011/02/27/oracle-installation-10g/"/>
+    <link href="http://iyunbo.github.io/Oracle/Linux/2011/02/27/oracle-installation-10g/"/>
     <updated>2011-02-27T00:00:00+01:00</updated>
-    <id>http://www.iyunbo.org/Oracle/Linux/2011/02/27/oracle-installation-10g</id>
-    <content type="html"><![CDATA[<p><img src="http://www.iyunbo.org/images/posts/oraclesw.jpg" class="img-responsive" alt="Oracle"></p>
+    <id>http://iyunbo.github.io/Oracle/Linux/2011/02/27/oracle-installation-10g</id>
+    <content type="html"><![CDATA[<p><img src="http://iyunbo.github.io/images/posts/oraclesw.jpg" class="img-responsive" alt="Oracle"></p>
 
 <p><a href="http://www.oracle.com/" title="Oracle">Oracle</a> database installation is not simple procedure. And it may take hours even days if something goes wrong.
 Here are some useful tutorial links and explanations. Hopefully with these instructions, installing oracle database is no longer or less painful.</p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[iyunbo - design with code]]></title>
-  <link href="http://www.iyunbo.org/atom.xml" rel="self"/>
-  <link href="http://www.iyunbo.org/"/>
-  <updated>2016-08-19T11:49:28+02:00</updated>
-  <id>http://www.iyunbo.org/</id>
+  <link href="http://iyunbo.github.io/atom.xml" rel="self"/>
+  <link href="http://iyunbo.github.io/"/>
+  <updated>2016-08-19T15:03:01+02:00</updated>
+  <id>http://iyunbo.github.io/</id>
   <author>
     <name><![CDATA[Yunbo WANG]]></name>
     <email><![CDATA[iyunbo@iyunbo.org]]></email>
@@ -14,10 +14,66 @@
 
   
   <entry>
+    <title type="html"><![CDATA[基于ActivePivot的内存分析技术]]></title>
+    <link href="http://iyunbo.github.io/BigData/In-Memory/2015/03/21/big-data-analytics-with-ActivePivot/"/>
+    <updated>2015-03-21T12:12:00+01:00</updated>
+    <id>http://iyunbo.github.io/BigData/In-Memory/2015/03/21/big-data-analytics-with-ActivePivot</id>
+    <content type="html"><![CDATA[<h3>大数据时代来临</h3>
+
+<p><img class="img-responsive" src="https://quartetfs.com/images/analytical-platform.png" alt="ActivePivot">
+ 数据分析如今已经成为企业议事日程中的首选项之一。“大数据” &ndash; 在这个被过度宣传的标语面前，管理者们正在竭尽全力的去抓住其中蕴含的无可限量的竞争优势，他们都绞尽脑汁的从运营数据中获取洞察力。
+大数据所带来的变革性的影响正在挑战着传统的技术架构，这些结构已经被大部分公司使用了十多年。具体点讲，这种影响正在使得事务技术(Transactional)和分析技术(Analytical)之间的边界变得模糊，这就使得刻意的区分OLTP和OLAP系统显得不合适，尤其是在面对大型实时动态数据分析的时候。</p>
+
+<h3>对速度的追逐</h3>
+
+<p>如今，数据分析几乎不可避免的以速度为导向。这种对速度的需求可以细分为两种互相联系的要素：数据搜索速度和数据更新速度。要解决这两个要素中的任意一个，都不是一件简单的事情。 最终，这种需求将会孕育出一种混合型的数据管理系统，这种系统将同时满足快速的分析以及快速的更新这两方面需要。</p>
+
+<!-- more -->
+
+
+<p>近些年，一些在OLAP基础上进行的优化架构的探索已经被证明是徒劳的。 OLAP的设计初心是为用户最大限度的提供有用信息，然后，传统的OLAP往往不能适应用户多样性的需求，更无法满足“计算完成以后的变动”这个常见而具挑战的需求。现在的用户往往希望能以”探索”的形式与系统交互，而不是系统给出一些预先计算的结果。这种更直观的使用数据的方式大大增加了数据的运算量，事实上，由于分析维度的不断增加，数据量以及数据运算量将以几何级数的方式增加。这个结果，也就是所谓的“维度诅咒”，它将大幅度的降低系统效率。直观的看，似乎数据的搜索便利要建立在牺牲系统性能的基础上，或者反过来，系统的性能提升只能建立在牺牲数据搜索的便利性之上。</p>
+
+<p>ROLAP和MOLAP是近些年来试图绕开”维度诅咒”的两个典型例子。其中MOLAP，即多维OLAP，主要原理是将数据存放到一个多维超立方体数据模型里并计算所有可能的不同维度之间的组合结果，这样MOLAP满足了数据搜索方面的速度要求，但是它完全无法满足数据更新速度的要求，因为它基于延时非常高的批量数据处理。另一方面，ROLAP，即关系型OLAP，是建立在传统关系型数据库上，这种情况下数据更新速度能够被满足，因为用户的每次查询都会让系统重新计算结果。然后数据的搜索速度将会大打折扣，尤其是当运算相当复杂的时候，搜索速度难以让人忍受。</p>
+
+<h3>内存计算的崛起</h3>
+
+<p>新兴的内存计算试图同时解决数据处理速度，和动态的提升搜索性能。与以往的技术不同，我们可以将以TB为单位的数据直接存如计算机的内存，这样就可以很快速的处理大量的数据。
+这种新型的运算方式有几个好处：</p>
+
+<ul>
+<li>首先，目前内存的成本已经非常低廉。我们给系统配置的内存越多，系统的整体性能就越高。</li>
+<li>其次，由于多核处理器的普及，实现基于内存的并行计算，数据压缩，索引优化都成为了可行的方案，这些方案都会大大提数据分析的效率。</li>
+</ul>
+
+
+<p>内存计算逐渐让人们看到打破“维度诅咒”的曙光。事实上，新兴的内存可视化解决方案已经声称确保在可接受的速度下提供无限的数据量搜索能力。然而，数据更新速度这一点还是没有得到妥善的解决，人们需要的是随时随地更新数据。其中最主要的原因是内存可视化技术不支持不同数据模型的混合运算。混合运算要求系统能够同时支持简短的事务性查询以及复杂数据量大的分析型查询。混合运算型数据库的一个显著优势就是它巧妙的抹去了数据从创造数据的事务环境转移到探索数据的分析环境之间的鸿沟。这样，用户终于可以实时的搜索随时随地更新的数据。</p>
+
+<h3>ActivePivot</h3>
+
+<p>ActivePivot由QuartetFS公司开发，这是一个混合性数据系统，它能够处理多维模型的搜索，同时支持实时数据更新，这就是一个奔着去解决两个速度要素的解决方案。目前，欧洲一些大型金融机构，例如花旗银行，法国新业银行，德国商业银行，瑞日信贷等，已经采用了这项技术作为它们新一代的数据分析工具。支持ActivePivot能够满足这么多用户需求的是几项核心设计：</p>
+
+<ul>
+<li>基于JAVA的内存管理系统</li>
+<li>数据与计算在同一介质上，大大提升了运算速度</li>
+<li>基于多核处理器的设计：充分利用硬件资源</li>
+<li>列式存储机制：有效提升查询的性能</li>
+<li>数据压缩技术节省了空间</li>
+<li>Bitmap索引：同时具备节约空间和提升性能的优点</li>
+<li>纵向与横向的可伸缩性</li>
+<li>支持标准的多维查询语言MDX</li>
+<li>完整数据可视化解决方案</li>
+</ul>
+
+
+<p>如果感兴趣，<a href="https://quartetfs.com/resource-center/case-studies">这里</a>可以找到相关的应用场景，其中包含技术文档的链接</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Ship software faster with container]]></title>
-    <link href="http://www.iyunbo.org/Linux/Virtualization/2014/06/14/ship-software-faster-with-container/"/>
+    <link href="http://iyunbo.github.io/Linux/Virtualization/2014/06/14/ship-software-faster-with-container/"/>
     <updated>2014-06-14T19:10:00+02:00</updated>
-    <id>http://www.iyunbo.org/Linux/Virtualization/2014/06/14/ship-software-faster-with-container</id>
+    <id>http://iyunbo.github.io/Linux/Virtualization/2014/06/14/ship-software-faster-with-container</id>
     <content type="html"><![CDATA[<p><img class="img-responsive" src="http://www.docker.com/static/img/homepage/docker-whale-home-logo+.png" alt="Docker"></p>
 
 <p>How many times we heared about &ldquo;But this works in my computer&rdquo;, &ldquo;We could never seen this in other environments&rdquo;, &ldquo;6 weeks spent just to makt sure it will work in production, but we can never be 100% sure &hellip;&rdquo;</p>
@@ -49,9 +105,9 @@
   
   <entry>
     <title type="html"><![CDATA[recommended programming courses from Cousera]]></title>
-    <link href="http://www.iyunbo.org/2014/06/13/recommended-programming-courses-from-cousera/"/>
+    <link href="http://iyunbo.github.io/2014/06/13/recommended-programming-courses-from-cousera/"/>
     <updated>2014-06-13T23:00:00+02:00</updated>
-    <id>http://www.iyunbo.org/2014/06/13/recommended-programming-courses-from-cousera</id>
+    <id>http://iyunbo.github.io/2014/06/13/recommended-programming-courses-from-cousera</id>
     <content type="html"><![CDATA[<p><img class="img-rounded img-responsive" src="https://www.coursera.org//maestro/api/course/971469/logo"></img></p>
 
 <blockquote><p><a href="https://www.coursera.org">Coursera</a> is an education platform that partners with top universities and organizations worldwide, to offer courses online for anyone to take, for free.</p>
@@ -76,10 +132,10 @@
   
   <entry>
     <title type="html"><![CDATA[Using Git Efficiently]]></title>
-    <link href="http://www.iyunbo.org/Linux/2013/05/18/using-git-efficiently/"/>
+    <link href="http://iyunbo.github.io/Linux/2013/05/18/using-git-efficiently/"/>
     <updated>2013-05-18T13:00:00+02:00</updated>
-    <id>http://www.iyunbo.org/Linux/2013/05/18/using-git-efficiently</id>
-    <content type="html"><![CDATA[<p><img src="http://www.iyunbo.org/images/posts/git.jpg" class="img-responsive" alt="Git branching"></p>
+    <id>http://iyunbo.github.io/Linux/2013/05/18/using-git-efficiently</id>
+    <content type="html"><![CDATA[<p><img src="http://iyunbo.github.io/images/posts/git.jpg" class="img-responsive" alt="Git branching"></p>
 
 <p>Git is a free and open source distributed version control system. Git is designed very differently from tranditional version control system like Subversion (SVN). It may confuse a SVN user at first. In oder to benefit Git&rsquo;s effeciency and speed, it&rsquo;s really important to uderstand it and use it wisely. This article is not a &ldquo;getting started&rdquo; tutorial neither a deep discussion of Git, but will provide relevant tips, references, links to help professionals understanding and using Git for their daily work. I suppose that you, my dear reader, have already the basic undersatding on version control system such as <a href="http://subversion.tigris.org/" title="SVN">SVN</a> or <a href="http://cvs.nongnu.org/" title="CVS">CVS</a>.</p>
 
@@ -172,7 +228,7 @@ Anything that is committed in Git can always be recovered. Even commits that wer
 </ul>
 
 
-<p><img src="http://www.iyunbo.org/images/posts/git_branch_workflow.png" class="img-responsive" alt="Git branching"></p>
+<p><img src="http://iyunbo.github.io/images/posts/git_branch_workflow.png" class="img-responsive" alt="Git branching"></p>
 
 <p>In Git it’s common to create, work on, merge, and delete branches several times a day. Comparing to SVN, branches are largely used and encouraged in Git giving its effeciency and simplicity. Remember all those merge, branch operations are managed loacally, no server communication is happening.</p>
 
@@ -203,14 +259,14 @@ Anything that is committed in Git can always be recovered. Even commits that wer
   
   <entry>
     <title type="html"><![CDATA[Gemini Architecture]]></title>
-    <link href="http://www.iyunbo.org/Project/Web/2013/05/16/gemini/"/>
+    <link href="http://iyunbo.github.io/Project/Web/2013/05/16/gemini/"/>
     <updated>2013-05-16T00:11:00+02:00</updated>
-    <id>http://www.iyunbo.org/Project/Web/2013/05/16/gemini</id>
+    <id>http://iyunbo.github.io/Project/Web/2013/05/16/gemini</id>
     <content type="html"><![CDATA[<p>Gemini是一个基于移动互联网络的交互式游戏。本文从技术层面来阐述Gemini的构架，分为物理构架和应用构架。Gemini的一大特性是利用Google App Engine Cloud Platform（以下称为GAE）作为底层的平台支持。</p>
 
 <h3>物理构架</h3>
 
-<p><img src="http://www.iyunbo.org/images/projects/gemini-architecture-infrastructure.jpg" class="img-responsive" alt="Infrastructure"></p>
+<p><img src="http://iyunbo.github.io/images/projects/gemini-architecture-infrastructure.jpg" class="img-responsive" alt="Infrastructure"></p>
 
 <!--more-->
 
@@ -226,7 +282,7 @@ Anything that is committed in Git can always be recovered. Even commits that wer
 
 <p>下图为应用构架：</p>
 
-<p><img src="http://www.iyunbo.org/images/projects/gemini-architecture-application.jpg" class="img-responsive" alt="Application Architecture"></p>
+<p><img src="http://iyunbo.github.io/images/projects/gemini-architecture-application.jpg" class="img-responsive" alt="Application Architecture"></p>
 
 <p>由于有了完善的云端支持，Gemini应用构架完全建立在GAE提供的物理支持和各种软件服务之上。Gemini服务器端应用应该趋向于结构的简化和服务的重用，这个应用构架的总体设计要点是：</p>
 
@@ -330,10 +386,10 @@ Anything that is committed in Git can always be recovered. Even commits that wer
   
   <entry>
     <title type="html"><![CDATA[Optimize the look with Solarized]]></title>
-    <link href="http://www.iyunbo.org/Web/2013/05/11/optimize-the-look-with-solarized/"/>
+    <link href="http://iyunbo.github.io/Web/2013/05/11/optimize-the-look-with-solarized/"/>
     <updated>2013-05-11T01:24:00+02:00</updated>
-    <id>http://www.iyunbo.org/Web/2013/05/11/optimize-the-look-with-solarized</id>
-    <content type="html"><![CDATA[<p><img src="http://www.iyunbo.org/images/posts/solarized_yinyang.jpg" class="img-responsive" alt="Solarized project "></p>
+    <id>http://iyunbo.github.io/Web/2013/05/11/optimize-the-look-with-solarized</id>
+    <content type="html"><![CDATA[<p><img src="http://iyunbo.github.io/images/posts/solarized_yinyang.jpg" class="img-responsive" alt="Solarized project "></p>
 
 <p>Web developpers or Apps developpers, IHM designers or Graphists how much time have you spent choosing the perfect color of your works?</p>
 
@@ -353,10 +409,10 @@ The author and other contributors still work on &ldquo;Solarizing&rdquo; many ap
   
   <entry>
     <title type="html"><![CDATA[Octopress makes blogging enjoyable]]></title>
-    <link href="http://www.iyunbo.org/Web/Ruby/2013/05/08/octopress/"/>
+    <link href="http://iyunbo.github.io/Web/Ruby/2013/05/08/octopress/"/>
     <updated>2013-05-08T13:07:00+02:00</updated>
-    <id>http://www.iyunbo.org/Web/Ruby/2013/05/08/octopress</id>
-    <content type="html"><![CDATA[<p><img src="http://www.iyunbo.org/images/posts/octopress_logo.png " class="img-responsive" alt="Octo is pressing!"></p>
+    <id>http://iyunbo.github.io/Web/Ruby/2013/05/08/octopress</id>
+    <content type="html"><![CDATA[<p><img src="http://iyunbo.github.io/images/posts/octopress_logo.png " class="img-responsive" alt="Octo is pressing!"></p>
 
 <p><a href="http://octopress.org/" title="Octopress">Octopress</a> is a framework designed for Jekyll, the static blogging engine powering Github Pages.
 Thanks to Octopress, code blogging is easy and beautiful.
@@ -374,9 +430,9 @@ How to know if it&rsquo;s the right tool for you? Just feel the joy then it&rsqu
   
   <entry>
     <title type="html"><![CDATA[Principles of Test Driven Development (TDD)]]></title>
-    <link href="http://www.iyunbo.org/J2EE/2011/02/28/principles-of-test-driven-development-tdd/"/>
+    <link href="http://iyunbo.github.io/J2EE/2011/02/28/principles-of-test-driven-development-tdd/"/>
     <updated>2011-02-28T00:00:00+01:00</updated>
-    <id>http://www.iyunbo.org/J2EE/2011/02/28/principles-of-test-driven-development-tdd</id>
+    <id>http://iyunbo.github.io/J2EE/2011/02/28/principles-of-test-driven-development-tdd</id>
     <content type="html"><![CDATA[<p><a href="http://en.wikipedia.org/wiki/Test-driven_development" title="TTD">TDD</a> is a great method in software design.
 Traditionally, the process of TDD consists of the following steps:
 1. Always write a unit test before everything else and of course il will fail
@@ -384,7 +440,7 @@ Traditionally, the process of TDD consists of the following steps:
 1. Refactor the code
 1. Repeat all above</p>
 
-<p><img src="http://www.iyunbo.org/images/posts/tdd_flow.png" class="img-responsive" alt="A quick overview of the Test-driven development"></p>
+<p><img src="http://iyunbo.github.io/images/posts/tdd_flow.png" class="img-responsive" alt="A quick overview of the Test-driven development"></p>
 
 <p>Test-driven does not simply verify the correctness of the code but more important it <strong>drives the design</strong>.</p>
 
@@ -457,10 +513,10 @@ Traditionally, the process of TDD consists of the following steps:
   
   <entry>
     <title type="html"><![CDATA[Oracle installation (10g+)]]></title>
-    <link href="http://www.iyunbo.org/Oracle/Linux/2011/02/27/oracle-installation-10g/"/>
+    <link href="http://iyunbo.github.io/Oracle/Linux/2011/02/27/oracle-installation-10g/"/>
     <updated>2011-02-27T00:00:00+01:00</updated>
-    <id>http://www.iyunbo.org/Oracle/Linux/2011/02/27/oracle-installation-10g</id>
-    <content type="html"><![CDATA[<p><img src="http://www.iyunbo.org/images/posts/oraclesw.jpg" class="img-responsive" alt="Oracle"></p>
+    <id>http://iyunbo.github.io/Oracle/Linux/2011/02/27/oracle-installation-10g</id>
+    <content type="html"><![CDATA[<p><img src="http://iyunbo.github.io/images/posts/oraclesw.jpg" class="img-responsive" alt="Oracle"></p>
 
 <p><a href="http://www.oracle.com/" title="Oracle">Oracle</a> database installation is not simple procedure. And it may take hours even days if something goes wrong.
 Here are some useful tutorial links and explanations. Hopefully with these instructions, installing oracle database is no longer or less painful.</p>
@@ -538,9 +594,9 @@ We can now test the database connection:</p>
   
   <entry>
     <title type="html"><![CDATA[Apps]]></title>
-    <link href="http://www.iyunbo.org/2009/01/07/apps/"/>
+    <link href="http://iyunbo.github.io/2009/01/07/apps/"/>
     <updated>2009-01-07T12:00:00+01:00</updated>
-    <id>http://www.iyunbo.org/2009/01/07/apps</id>
+    <id>http://iyunbo.github.io/2009/01/07/apps</id>
     <content type="html"><![CDATA[<p>Apps created by iyunbo.org</p>
 
 <!--more-->

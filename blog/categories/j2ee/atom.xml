@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: J2EE | iyunbo - design with code]]></title>
-  <link href="http://www.iyunbo.org/blog/categories/j2ee/atom.xml" rel="self"/>
-  <link href="http://www.iyunbo.org/"/>
-  <updated>2016-08-19T11:49:28+02:00</updated>
-  <id>http://www.iyunbo.org/</id>
+  <link href="http://iyunbo.github.io/blog/categories/j2ee/atom.xml" rel="self"/>
+  <link href="http://iyunbo.github.io/"/>
+  <updated>2016-08-19T15:03:01+02:00</updated>
+  <id>http://iyunbo.github.io/</id>
   <author>
     <name><![CDATA[Yunbo WANG]]></name>
     <email><![CDATA[iyunbo@iyunbo.org]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Principles of Test Driven Development (TDD)]]></title>
-    <link href="http://www.iyunbo.org/J2EE/2011/02/28/principles-of-test-driven-development-tdd/"/>
+    <link href="http://iyunbo.github.io/J2EE/2011/02/28/principles-of-test-driven-development-tdd/"/>
     <updated>2011-02-28T00:00:00+01:00</updated>
-    <id>http://www.iyunbo.org/J2EE/2011/02/28/principles-of-test-driven-development-tdd</id>
+    <id>http://iyunbo.github.io/J2EE/2011/02/28/principles-of-test-driven-development-tdd</id>
     <content type="html"><![CDATA[<p><a href="http://en.wikipedia.org/wiki/Test-driven_development" title="TTD">TDD</a> is a great method in software design.
 Traditionally, the process of TDD consists of the following steps:
 1. Always write a unit test before everything else and of course il will fail
@@ -25,7 +25,7 @@ Traditionally, the process of TDD consists of the following steps:
 1. Refactor the code
 1. Repeat all above</p>
 
-<p><img src="http://www.iyunbo.org/images/posts/tdd_flow.png" class="img-responsive" alt="A quick overview of the Test-driven development"></p>
+<p><img src="http://iyunbo.github.io/images/posts/tdd_flow.png" class="img-responsive" alt="A quick overview of the Test-driven development"></p>
 
 <p>Test-driven does not simply verify the correctness of the code but more important it <strong>drives the design</strong>.</p>
 

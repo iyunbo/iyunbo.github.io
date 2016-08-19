@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Virtualization | iyunbo - design with code]]></title>
-  <link href="http://www.iyunbo.org/blog/categories/virtualization/atom.xml" rel="self"/>
-  <link href="http://www.iyunbo.org/"/>
-  <updated>2016-08-19T11:49:28+02:00</updated>
-  <id>http://www.iyunbo.org/</id>
+  <link href="http://iyunbo.github.io/blog/categories/virtualization/atom.xml" rel="self"/>
+  <link href="http://iyunbo.github.io/"/>
+  <updated>2016-08-19T15:03:01+02:00</updated>
+  <id>http://iyunbo.github.io/</id>
   <author>
     <name><![CDATA[Yunbo WANG]]></name>
     <email><![CDATA[iyunbo@iyunbo.org]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ship software faster with container]]></title>
-    <link href="http://www.iyunbo.org/Linux/Virtualization/2014/06/14/ship-software-faster-with-container/"/>
+    <link href="http://iyunbo.github.io/Linux/Virtualization/2014/06/14/ship-software-faster-with-container/"/>
     <updated>2014-06-14T19:10:00+02:00</updated>
-    <id>http://www.iyunbo.org/Linux/Virtualization/2014/06/14/ship-software-faster-with-container</id>
+    <id>http://iyunbo.github.io/Linux/Virtualization/2014/06/14/ship-software-faster-with-container</id>
     <content type="html"><![CDATA[<p><img class="img-responsive" src="http://www.docker.com/static/img/homepage/docker-whale-home-logo+.png" alt="Docker"></p>
 
 <p>How many times we heared about &ldquo;But this works in my computer&rdquo;, &ldquo;We could never seen this in other environments&rdquo;, &ldquo;6 weeks spent just to makt sure it will work in production, but we can never be 100% sure &hellip;&rdquo;</p>
