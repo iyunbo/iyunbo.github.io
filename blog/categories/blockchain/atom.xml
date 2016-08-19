@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Blockchain | iyunbo - design with code]]></title>
+  <link href="http://iyunbo.github.io/blog/categories/blockchain/atom.xml" rel="self"/>
+  <link href="http://iyunbo.github.io/"/>
+  <updated>2016-08-19T18:23:05+02:00</updated>
+  <id>http://iyunbo.github.io/</id>
+  <author>
+    <name><![CDATA[Yunbo WANG]]></name>
+    <email><![CDATA[iyunbo@iyunbo.org]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[比特币原理的简单解释]]></title>
+    <link href="http://iyunbo.github.io/Blockchain/2016/03/01/how-does-bitcoin-work/"/>
+    <updated>2016-03-01T15:24:00+01:00</updated>
+    <id>http://iyunbo.github.io/Blockchain/2016/03/01/how-does-bitcoin-work</id>
+    <content type="html"><![CDATA[<p>以下为翻译文章，英文原版链接在<a href="https://bitcoin.org/en/how-it-works">这里</a></p>
+
+<h3>基本概念</h3>
+
+<p>作为一个新用户，你可以马上开始使用比特币，而不用理解其中的技术细节。首先你安装一个比特币钱包在你的计算机或者手机里面，比特币钱包会自动生成你的第一个比特币地址，之后你随时都可以再创建新的地址了。你还可以将地址分享给你的朋友，让他们可以和你之间实现互相支付。实际上，这有点像电子邮件的运行机制，除了一点，比特币的地址只能使用一次。
+<img class="img-responsive" src="https://bitcoin.org/img/icons/bitcoin-how-it-works.svg" alt="Bitcoin"></p>
+
+<h3>余额 &ndash; 区块链技术</h3>
+
+<p>区块链实际上就是一部共享账本，整个比特币网络就建立在它上面。 所有已经确认了的交易都包含在区块链里。 在这基础上, 比特币钱包就可以计算出已经花费的额度，并且可以验证交易中所花费的比特币确实属于花钱的这个人。 区块链中数据的完整性以及交易的时间顺序都是通过加密技术来得以增强的。</p>
+
+<!-- more -->
+
+
+<h3>交易 &ndash; 私有秘钥技术</h3>
+
+<p>所谓一笔交易实际上就是价值从一个比特币钱包到另一个比特币钱包的转移，这两个比特币钱包都必须已经注册在区块链里。比特币钱包中保留了一小份私密的数据，这部分数据称为私有秘钥(私钥)，私钥用来为交易进行电子签名，这个签名通过数学原理来证明交易确实来源于钱包的持有人。电子签名的另外一个作用是防止其他人更改交易内容。所有的交易都在比特币用户之间通过广播的方式传播。通常在大概10分钟之后，比特币网络就可以验证一笔交易。验证交易的过程称为“挖矿”。</p>
+
+<h3>生产流程 &ndash; ”挖矿”</h3>
+
+<p>”挖矿”是一套分布式的共识系统，这套系统用来验证等待确认的交易，一旦验证成功，交易就进入到了区块链里，它强化了区块链中交易的时间先后顺序，并且允许不同的计算机能够对当前系统的状态达成共识。要让交易验证成功，交易数据必须经过严格的加密规则打包到某一区块里，以便提供给区块链网络进行验证。这些加密规则确保以往的区块不被更改，一旦其中一个区块被更改，所有的其他区块都将失效。“挖矿”的规则同时使用一种类似”抽奖”的竞争机制，来防止任何人可以轻易的连续写入数据到区块链中。如此一来，没有任何一个人可以想当然的控制放入块链中的内容，更不能更改区块链中的数据来抹去他的花销。</p>
+
+<h3>进一步深究</h3>
+
+<p>本文只是区块链系统的一个简单概括. 如果你想了解更深入的细节,可以先阅读比特币的<a href="https://bitcoin.org/en/bitcoin-paper">原始论文</a>，这片论文清楚描述了这个系统的设计思路，也可以阅读<a href="https://bitcoin.org/en/developer-documentation">开发文档</a>，或者浏览<a href="https://en.bitcoin.it/wiki/Main_Page">比特币维基百科</a>。</p>
+]]></content>
+  </entry>
+  
+</feed>

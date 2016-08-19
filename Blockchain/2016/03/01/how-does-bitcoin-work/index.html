@@ -4,11 +4,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Using Git Efficiently - iyunbo - design with code</title>
+  <title>比特币原理的简单解释 - iyunbo - design with code</title>
   <meta name="author" content="Yunbo WANG">
 
-  <meta name="description" content="understanding Git, working with git for day-to-day tasks, branching with Git, tips and tricks and good documentation about Git.">
-  <meta name="keywords" content="git, use git, github, svn, subversion, ssh, vcs, version control">
+  
+  
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -16,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://iyunbo.github.io/Linux/2013/05/18/using-git-efficiently">
+  <link rel="canonical" href="http://iyunbo.github.io/Blockchain/2016/03/01/how-does-bitcoin-work">
   <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="iyunbo - design with code" type="application/atom+xml">
 
@@ -114,7 +114,7 @@
 
 
 
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-05-18T13:00:00+02:00" pubdate data-updated="true">May 18<span>th</span>, 2013</time>
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2016-03-01T15:24:00+01:00" pubdate data-updated="true">Mar 1<span>st</span>, 2016</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://iyunbo.github.io">Comments</a>
@@ -123,132 +123,38 @@
     
     
     <h1 class="entry-title">
-        Using Git Efficiently
+        比特币原理的简单解释
         
     </h1>
     
   </header>
 
 
-<div class="entry-content clearfix"><p><img src="/images/posts/git.jpg" class="img-responsive" alt="Git branching"></p>
+<div class="entry-content clearfix"><p>以下为翻译文章，英文原版链接在<a href="https://bitcoin.org/en/how-it-works">这里</a></p>
 
-<p>Git is a free and open source distributed version control system. Git is designed very differently from tranditional version control system like Subversion (SVN). It may confuse a SVN user at first. In oder to benefit Git&rsquo;s effeciency and speed, it&rsquo;s really important to uderstand it and use it wisely. This article is not a &ldquo;getting started&rdquo; tutorial neither a deep discussion of Git, but will provide relevant tips, references, links to help professionals understanding and using Git for their daily work. I suppose that you, my dear reader, have already the basic undersatding on version control system such as <a href="http://subversion.tigris.org/" title="SVN">SVN</a> or <a href="http://cvs.nongnu.org/" title="CVS">CVS</a>.</p>
+<h3>基本概念</h3>
 
-<!--more-->
+<p>作为一个新用户，你可以马上开始使用比特币，而不用理解其中的技术细节。首先你安装一个比特币钱包在你的计算机或者手机里面，比特币钱包会自动生成你的第一个比特币地址，之后你随时都可以再创建新的地址了。你还可以将地址分享给你的朋友，让他们可以和你之间实现互相支付。实际上，这有点像电子邮件的运行机制，除了一点，比特币的地址只能使用一次。
+<img class="img-responsive" src="https://bitcoin.org/img/icons/bitcoin-how-it-works.svg" alt="Bitcoin"></p>
 
+<h3>余额 &ndash; 区块链技术</h3>
 
-<h3>Uderstanding Git</h3>
+<p>区块链实际上就是一部共享账本，整个比特币网络就建立在它上面。 所有已经确认了的交易都包含在区块链里。 在这基础上, 比特币钱包就可以计算出已经花费的额度，并且可以验证交易中所花费的比特币确实属于花钱的这个人。 区块链中数据的完整性以及交易的时间顺序都是通过加密技术来得以增强的。</p>
 
-<p>first of all, make sure those basics are clearly understood:</p>
-
-<ul>
-<li>Git is distrubuted, you have everything the server has</li>
-<li>Git is a story of snapshorts not deltas</li>
-<li>Think Git as a filesystem</li>
-<li>Git is fast because it works locally most of the time</li>
-<li>3 states: committed, modified, and staged</li>
-<li>GIT use SHA-1 algorithm to hash cryptographically its contents</li>
-</ul>
+<!-- more -->
 
 
-<p>This <a href="http://git-scm.com/book/en/Getting-Started" title="Git basics">&ldquo;getting started&rdquo; documentation</a> explains very well these basics in a simple way. Understanding the differences between Git and SVN in the first place is vital because this is where mistakes often happen. <a href="http://boxysystems.com/index.php/5-fundamental-differences-between-git-svn/" title="Differences between Git &amp; SVN">This article</a> explains very briefly the fundamental differences between the two systems.</p>
+<h3>交易 &ndash; 私有秘钥技术</h3>
 
-<p>Now, let&rsquo;s try Git. If you haven&rsquo;t installed Git yet, here are links for <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git" title="Installing Git">installing</a> and <a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup" title="Git first time Setup">setup</a>.</p>
+<p>所谓一笔交易实际上就是价值从一个比特币钱包到另一个比特币钱包的转移，这两个比特币钱包都必须已经注册在区块链里。比特币钱包中保留了一小份私密的数据，这部分数据称为私有秘钥(私钥)，私钥用来为交易进行电子签名，这个签名通过数学原理来证明交易确实来源于钱包的持有人。电子签名的另外一个作用是防止其他人更改交易内容。所有的交易都在比特币用户之间通过广播的方式传播。通常在大概10分钟之后，比特币网络就可以验证一笔交易。验证交易的过程称为“挖矿”。</p>
 
-<h3>Working with Git</h3>
+<h3>生产流程 &ndash; ”挖矿”</h3>
 
-<p><a href="http://git-scm.com/book/en/Git-Basics" title="Git Basic Commands">This documentation</a> explains very well the basic daily work commands. There is no need to say more, I just sum up the most used commands as following:</p>
+<p>”挖矿”是一套分布式的共识系统，这套系统用来验证等待确认的交易，一旦验证成功，交易就进入到了区块链里，它强化了区块链中交易的时间先后顺序，并且允许不同的计算机能够对当前系统的状态达成共识。要让交易验证成功，交易数据必须经过严格的加密规则打包到某一区块里，以便提供给区块链网络进行验证。这些加密规则确保以往的区块不被更改，一旦其中一个区块被更改，所有的其他区块都将失效。“挖矿”的规则同时使用一种类似”抽奖”的竞争机制，来防止任何人可以轻易的连续写入数据到区块链中。如此一来，没有任何一个人可以想当然的控制放入块链中的内容，更不能更改区块链中的数据来抹去他的花销。</p>
 
-<ul>
-<li>Recording changes to the repository</li>
-</ul>
+<h3>进一步深究</h3>
 
-
-<p>gist 5605116 git_recording_changes.sh</p>
-
-<ul>
-<li>Viewing commits history</li>
-</ul>
-
-
-<p> gist 5605116 git_log.sh</p>
-
-<ul>
-<li>Commit message model</li>
-</ul>
-
-
-<p>gist 5605116 git_commit_message.txt</p>
-
-<ul>
-<li>Undoing Things</li>
-</ul>
-
-
-<p>gist 5605116 git_undoing.sh</p>
-
-<p><strong>Be careful, because you can’t always revert some of these undos. This is one of the few areas in Git where you may lose some work if you do it wrong.</strong>
-Anything that is committed in Git can always be recovered. Even commits that were on branches that were deleted or commits that were overwritten with an &mdash;amend commit can be recovered.  However, anything you lose that was never committed is likely never to be seen again. It&rsquo;s good practice to commit things regularly.</p>
-
-<ul>
-<li>Working with Remotes</li>
-</ul>
-
-
-<p>gist 5605116 git_remote.sh</p>
-
-<ul>
-<li>Making Git easier</li>
-</ul>
-
-
-<p>Here is a BASH script to make Git experience simpler, easier and familiar.</p>
-
-<p>gist 5605116 git_easier.sh</p>
-
-<h3>Branching with Git</h3>
-
-<p>Branching is the &ldquo;killer feature&rdquo; in Git, it changes the way we develop. I still remember how painful to manager a branch with SVN. But with Git, it&rsquo;s so lightweight that swiching between branches is almost instantaneous. You can read <a href="http://git-scm.com/book/en/Git-Branching" title="Git branching">this documentation</a> to know about Git branching. I list out just some important tips:</p>
-
-<ul>
-<li>Understand what branch is in Git is most essential, <a href="http://git-scm.com/book/en/Git-Branching-What-a-Branch-Is" title="Git Branching">this documentation</a> helps you understand it very well</li>
-<li>Branch &amp; Merge are day-to-day tasks, here is a basic story to show how these things are done</li>
-</ul>
-
-
-<p>gist 5605116 git_branch_story.sh</p>
-
-<ul>
-<li>The above example just shows a simple use case, however the real life work are more complicated and branches are managed by different levels of stability especially when dealing with large projects.</li>
-</ul>
-
-
-<p><img src="/images/posts/git_branch_workflow.png" class="img-responsive" alt="Git branching"></p>
-
-<p>In Git it’s common to create, work on, merge, and delete branches several times a day. Comparing to SVN, branches are largely used and encouraged in Git giving its effeciency and simplicity. Remember all those merge, branch operations are managed loacally, no server communication is happening.</p>
-
-<ul>
-<li>See <a href="http://git-scm.com/book/en/Git-Branching-Remote-Branches" title="Git Remote Branching">this documentation</a> for Remote Branches management</li>
-<li>And <a href="http://git-scm.com/book/en/Git-Branching-Rebasing" title="Git Rebasing">this documentation</a> for Rebasing.</li>
-</ul>
-
-
-<p>Rebasing results in changes as the merge, but offers a cleaner commit history. The following commands are often used when dealing with rebasing.</p>
-
-<p>gist 5605116 git_rebasing.sh</p>
-
-<p><strong>NEVER, never, never rebase commits that you have pushed to a public repository. This could generate a lot of useless work for everybody of your team</strong></p>
-
-<h3>More</h3>
-
-<p>At this point, you should be confortable with Git basic commands and concepts, but for working on real projects, you still need define a workflow model and some rules for your team, here is a list of very good guidelines and practical recommandations:</p>
-
-<ul>
-<li><a href="http://git-scm.com/book/en/Distributed-Git-Contributing-to-a-Project" title="Projects Workflows">Common project workflows</a></li>
-<li><a href="http://stackoverflow.com/a/7589612/644774" title="Tips for merging">Tips for merging</a></li>
-<li>The book: <a href="http://git-scm.com/book/en" title="Pro Git">Pro Git</a></li>
-</ul>
-
+<p>本文只是区块链系统的一个简单概括. 如果你想了解更深入的细节,可以先阅读比特币的<a href="https://bitcoin.org/en/bitcoin-paper">原始论文</a>，这片论文清楚描述了这个系统的设计思路，也可以阅读<a href="https://bitcoin.org/en/developer-documentation">开发文档</a>，或者浏览<a href="https://en.bitcoin.it/wiki/Main_Page">比特币维基百科</a>。</p>
 </div>
 
 
@@ -272,13 +178,13 @@ Anything that is committed in Git can always be recovered. Even commits that wer
 
 
 
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-05-18T13:00:00+02:00" pubdate data-updated="true">May 18<span>th</span>, 2013</time>
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2016-03-01T15:24:00+01:00" pubdate data-updated="true">Mar 1<span>st</span>, 2016</time>
           
 
 <span class="glyphicon glyphicon-tags"></span>&nbsp;
 <span class="categories">
   
-    <a class='category' href='/blog/categories/linux/'>Linux</a>
+    <a class='category' href='/blog/categories/blockchain/'>Blockchain</a>
   
 </span>
 
@@ -287,7 +193,7 @@ Anything that is committed in Git can always be recovered. Even commits that wer
         
           <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://iyunbo.github.io/Linux/2013/05/18/using-git-efficiently/" data-via="iyunbo" data-counturl="http://iyunbo.github.io/Linux/2013/05/18/using-git-efficiently/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://iyunbo.github.io/Blockchain/2016/03/01/how-does-bitcoin-work/" data-via="iyunbo" data-counturl="http://iyunbo.github.io/Blockchain/2016/03/01/how-does-bitcoin-work/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -299,10 +205,8 @@ Anything that is committed in Git can always be recovered. Even commits that wer
         
           <ul class="meta text-muted pager">
             
-            <li class="previous"><a href="/Project/Web/2013/05/16/gemini/" title="Previous Post: Gemini Architecture">&laquo; Gemini Architecture</a></li>
+            <li class="previous"><a href="/BigData/In-Memory/2015/03/21/big-data-analytics-with-ActivePivot/" title="Previous Post: 基于ActivePivot的内存分析技术">&laquo; 基于ActivePivot的内存分析技术</a></li>
             
-            
-            <li class="next"><a href="/2014/06/13/recommended-programming-courses-from-cousera/" title="Next Post: recommended programming courses from Cousera">recommended programming courses from Cousera &raquo;</a></li>
             
           </ul>
         
@@ -327,7 +231,7 @@ Anything that is committed in Git can always be recovered. Even commits that wer
   
   <div id="recent_posts" class="list-group">
     
-    <a class="list-group-item " href="/Blockchain/2016/03/01/how-does-bitcoin-work/">比特币原理的简单解释</a>
+    <a class="list-group-item active" href="/Blockchain/2016/03/01/how-does-bitcoin-work/">比特币原理的简单解释</a>
     
     <a class="list-group-item " href="/BigData/In-Memory/2015/03/21/big-data-analytics-with-ActivePivot/">基于ActivePivot的内存分析技术</a>
     
@@ -335,7 +239,7 @@ Anything that is committed in Git can always be recovered. Even commits that wer
     
     <a class="list-group-item " href="/2014/06/13/recommended-programming-courses-from-cousera/">Recommended Programming Courses From Cousera</a>
     
-    <a class="list-group-item active" href="/Linux/2013/05/18/using-git-efficiently/">Using Git Efficiently</a>
+    <a class="list-group-item " href="/Linux/2013/05/18/using-git-efficiently/">Using Git Efficiently</a>
     
   </div>
 </section>
@@ -385,8 +289,8 @@ Anything that is committed in Git can always be recovered. Even commits that wer
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://iyunbo.github.io/Linux/2013/05/18/using-git-efficiently/';
-        var disqus_url = 'http://iyunbo.github.io/Linux/2013/05/18/using-git-efficiently/';
+        var disqus_identifier = 'http://iyunbo.github.io/Blockchain/2016/03/01/how-does-bitcoin-work/';
+        var disqus_url = 'http://iyunbo.github.io/Blockchain/2016/03/01/how-does-bitcoin-work/';
         var disqus_script = 'embed.js';
       
     (function () {
