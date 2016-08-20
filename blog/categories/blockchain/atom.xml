@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blockchain | iyunbo - design with code]]></title>
   <link href="http://iyunbo.github.io/blog/categories/blockchain/atom.xml" rel="self"/>
   <link href="http://iyunbo.github.io/"/>
-  <updated>2016-08-20T22:58:46+02:00</updated>
+  <updated>2016-08-20T23:01:08+02:00</updated>
   <id>http://iyunbo.github.io/</id>
   <author>
     <name><![CDATA[Yunbo WANG]]></name>
@@ -37,6 +37,9 @@ EC_KEY *bbp_ec_new_keypair(const uint8_t *priv_bytes);
 &ndash; BN_CTX, BIGNUM
 &ndash; EC_KEY
 &ndash; EC_GROUP, EC_POINT</p>
+
+<!-- more -->
+
 
 <p>前两个结构属于OpenSSL中任意精度运算的领域，它们的作用是处理非常大的数字。其它类型都和EC加密有关。EC_KEY可以是完整的密钥对(私钥＋公钥)，也可以只包含公钥，EC_GROUP和 EC_POINT这两个数据结构就用来帮助我们从私钥计算得出公钥。</p>
 
