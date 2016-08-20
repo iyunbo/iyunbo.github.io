@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blockchain | iyunbo - design with code]]></title>
   <link href="http://iyunbo.github.io/blog/categories/blockchain/atom.xml" rel="self"/>
   <link href="http://iyunbo.github.io/"/>
-  <updated>2016-08-19T18:25:00+02:00</updated>
+  <updated>2016-08-20T22:58:46+02:00</updated>
   <id>http://iyunbo.github.io/</id>
   <author>
     <name><![CDATA[Yunbo WANG]]></name>
@@ -12,6 +12,131 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[区块链基础编程]]></title>
+    <link href="http://iyunbo.github.io/Blockchain/2016/08/20/basic-blockchain-programming/"/>
+    <updated>2016-08-20T20:22:00+02:00</updated>
+    <id>http://iyunbo.github.io/Blockchain/2016/08/20/basic-blockchain-programming</id>
+    <content type="html"><![CDATA[<p>以下为翻译文章，英文原版链接在<a href="http://davidederosa.com/basic-blockchain-programming">这里</a></p>
+
+<h3>基本概念</h3>
+
+<p>作为一个新用户，你可以马上开始使用比特币，而不用理解其中的技术细节。首先你安装一个比特币钱包在你的计算机或者手机里面，比特币钱包会自动生成你的第一个比特币地址，之后你随时都可以再创建新的地址了。你还可以将地址分享给你的朋友，让他们可以和你之间实现互相支付。实际上，这有点像电子邮件的运行机制，除了一点，比特币的地址只能使用一次。
+<img class="img-responsive" src="http://davidederosa.com/s/f/bitcoin/bitcoin-150.png" alt="Bitcoin"></p>
+
+<h3>通过代码生成密钥对</h3>
+
+<p>密钥对的生成工序比较繁琐，然而通过OpenSSL这个库来操作的话，也不是那么困难。我在<a href="https://github.com/keeshux/basic-blockchain-programming/blob/master/ec.h">ec.h</a>写了一个辅助方法,他的声明如下：</p>
+
+<p><code>c
+EC_KEY *bbp_ec_new_keypair(const uint8_t *priv_bytes);
+</code></p>
+
+<p>我们现来一起分析其中的一部分代码。代码涉及到OpenSSL中的一些数据结构：
+&ndash; BN_CTX, BIGNUM
+&ndash; EC_KEY
+&ndash; EC_GROUP, EC_POINT</p>
+
+<p>前两个结构属于OpenSSL中任意精度运算的领域，它们的作用是处理非常大的数字。其它类型都和EC加密有关。EC_KEY可以是完整的密钥对(私钥＋公钥)，也可以只包含公钥，EC_GROUP和 EC_POINT这两个数据结构就用来帮助我们从私钥计算得出公钥。</p>
+
+<p>最重要的一点是，我们通过创建一个EC_KEY数据结构来操作密钥对：</p>
+
+<p><code>c
+key = EC_KEY_new_by_curve_name(NID_secp256k1);
+</code></p>
+
+<p>加载私钥比较容易，但是需要一个中间步骤。在给密钥对提供priv_bytes这个输入之前，我们需要把它转化成一个BIGNUM，这里给它命名为priv：</p>
+
+<p><code>c
+BN_init(&amp;priv);
+BN_bin2bn(priv_bytes, 32, &amp;priv);
+EC_KEY_set_private_key(key, &amp;priv);
+</code></p>
+
+<p>对于复杂的大数字运算，OpenSSL需要一个环境，这就是为什么也要创建BN_CTX。公钥的推到过程需要更深的对EC数学原理的理解，这个当然不是本文的目的。简要的说，我们首先在曲线上找一个固定点G(这个曲线就是代码中的group变量，也称生成器)，然后把这个点的值乘与私钥的标量值n，这实质上是一个不可逆的模运算。它的结果P＝n＊G就得出第二个点的位置，也就对应公钥pub。最终我们把公钥也加载到密钥对中：</p>
+
+<p>```c
+ctx = BN_CTX_new();
+BN_CTX_start(ctx);</p>
+
+<p>group = EC_KEY_get0_group(key);
+pub = EC_POINT_new(group);
+EC_POINT_mul(group, pub, &amp;priv, NULL, NULL, ctx);
+EC_KEY_set_public_key(key, pub);
+```
+注意：这段代码经过了简化，没有检测是否有调用错误</p>
+
+<h3>例子</h3>
+
+<p>终于到了测试密钥对的时候了，代码在<a href="https://github.com/keeshux/basic-blockchain-programming/blob/master/ex-ec-keypair.c">ex-ec-keypair.c</a>文件里。我们希望代码的输出结果能和直接从命令行用openssl命令得出的结果保持一致。我们令priv_bytes存放我们的私钥：
+```c
+uint8_t priv_bytes[32] = {
+   0x16, 0x26, 0x07, 0x83, 0xe4, 0x0b, 0x16, 0x73,
+   0x16, 0x73, 0x62, 0x2a, 0xc8, 0xa5, 0xb0, 0x45,
+   0xfc, 0x3e, 0xa4, 0xaf, 0x70, 0xf7, 0x27, 0xf3,
+   0xf9, 0xe9, 0x2b, 0xdd, 0x3a, 0x1d, 0xdc, 0x42
+};</p>
+
+<p>EC_KEY <em>key;
+uint8_t priv[32];
+uint8_t </em>pub;
+const BIGNUM *priv_bn;</p>
+
+<p>point_conversion_form_t conv_forms[] = {
+   POINT_CONVERSION_UNCOMPRESSED,
+   POINT_CONVERSION_COMPRESSED
+};
+&hellip;</p>
+
+<p>/<em> 1 </em>/</p>
+
+<p>key = bbp_ec_new_keypair(priv_bytes);
+&hellip;</p>
+
+<p>/<em> 2 </em>/</p>
+
+<p>priv_bn = EC_KEY_get0_private_key(key);
+BN_bn2bin(priv_bn, priv);
+&hellip;</p>
+
+<p>/<em> 3 </em>/</p>
+
+<p>for (i = 0; i &lt; sizeof(conv_forms) / sizeof(point_conversion_form_t); ++i) {</p>
+
+<pre><code>size_t pub_len;
+uint8_t *pub_copy;
+
+EC_KEY_set_conv_form(key, conv_forms[i]);
+
+pub_len = i2o_ECPublicKey(key, NULL);
+pub = calloc(pub_len, sizeof(uint8_t));
+
+/* 我们需要pub_copy因为i2o_ECPublicKey会更改输入的指针 */
+pub_copy = pub;
+if (i2o_ECPublicKey(key, &amp;pub_copy) != pub_len) {
+    ...
+}
+...
+</code></pre>
+
+<p>}
+&hellip;
+```
+测试过程是这样的：</p>
+
+<ol>
+<li>通过priv_bytes初始化一个EC_KEY作为密钥对</li>
+<li>通过一个BIGNUM再把私钥存入priv变量</li>
+<li>把推导出的公钥存入pub变量，保证这个公钥具备所有通信格式</li>
+</ol>
+
+
+<p>第三部是最复杂的。首先需要配置通信格式，这个格式会反过来影响公钥的长度(长度可以是33或者65)。实际长度是通过用一个空参数调用i2o_ECPublicKey方法来获取的，目的是让pub分配到足够多的字符空间来存放输出。i2o_ECPublicKey最终把公钥从内部定义的数据结构转化为8位字节数组，这既是为什么这个方法的以i2o开头(octet是字节的意思)。这些经编码后的字节最后通过pub_copy零时变量存入key变量。</p>
+
+<p>请读者自己尝试允许这个程序并和openssl在命令行下的输出做对比</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[5分钟看懂比特币原理]]></title>
@@ -32,9 +157,9 @@
 <!-- more -->
 
 
-<h3>交易 &ndash; 私有秘钥技术</h3>
+<h3>交易 &ndash; 私有密钥技术</h3>
 
-<p>所谓一笔交易实际上就是价值从一个比特币钱包到另一个比特币钱包的转移，这两个比特币钱包都必须已经注册在区块链里。比特币钱包中保留了一小份私密的数据，这部分数据称为私有秘钥(私钥)，私钥用来为交易进行电子签名，这个签名通过数学原理来证明交易确实来源于钱包的持有人。电子签名的另外一个作用是防止其他人更改交易内容。所有的交易都在比特币用户之间通过广播的方式传播。通常在大概10分钟之后，比特币网络就可以验证一笔交易。验证交易的过程称为“挖矿”。</p>
+<p>所谓一笔交易实际上就是价值从一个比特币钱包到另一个比特币钱包的转移，这两个比特币钱包都必须已经注册在区块链里。比特币钱包中保留了一小份私密的数据，这部分数据称为私有密钥(私钥)，私钥用来为交易进行电子签名，这个签名通过数学原理来证明交易确实来源于钱包的持有人。电子签名的另外一个作用是防止其他人更改交易内容。所有的交易都在比特币用户之间通过广播的方式传播。通常在大概10分钟之后，比特币网络就可以验证一笔交易。验证交易的过程称为“挖矿”。</p>
 
 <h3>生产流程 &ndash; ”挖矿”</h3>
 
