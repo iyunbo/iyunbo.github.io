@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blockchain | iyunbo - design with code]]></title>
   <link href="http://iyunbo.github.io/blog/categories/blockchain/atom.xml" rel="self"/>
   <link href="http://iyunbo.github.io/"/>
-  <updated>2016-08-20T23:02:06+02:00</updated>
+  <updated>2016-08-24T22:06:22+02:00</updated>
   <id>http://iyunbo.github.io/</id>
   <author>
     <name><![CDATA[Yunbo WANG]]></name>
@@ -14,16 +14,75 @@
 
   
   <entry>
-    <title type="html"><![CDATA[区块链基础编程]]></title>
+    <title type="html"><![CDATA[区块链基础编程 - 椭圆曲线数字签名]]></title>
+    <link href="http://iyunbo.github.io/Blockchain/2016/08/21/basic-blockchain-elliptic-curve-digital-signatures/"/>
+    <updated>2016-08-21T18:32:00+02:00</updated>
+    <id>http://iyunbo.github.io/Blockchain/2016/08/21/basic-blockchain-elliptic-curve-digital-signatures</id>
+    <content type="html"><![CDATA[<p>以下为翻译文章，英文原版链接在<a href="http://davidederosa.com/basic-blockchain-programming/elliptic-curve-digital-signatures/">这里</a></p>
+
+<h3>椭圆曲线数字签名</h3>
+
+<p>现在你已经可以生成EC密钥对，下一步就是用它来签名和验证消息。我说的消息是指任何数据，文字或者二进制，总之是需要证伪的信息。比特币客户端用电子签名来认证交易，矿工则用它来授权并广播他们的有效交易记录。
+这篇文章只设计通用消息。之后，我们会在比特币交易签名流程中了解到都有哪些不同的消息。</p>
+
+<h4>ECDSA 签名</h4>
+
+<p>很容易理解EC签名算法的简称是ECDSA，全称是椭圆曲线数字签名算法。在这个算法里面，所有参与者都得在一个哈希函数H上取得共识，因为我们要签名的是消息的哈希映射，而不是消息本身。如果只是签署方S有访问私钥的权限，而签署方V保管着对应的公钥，这是没有意义的。我将继续使用上一章生成的私钥和公钥。
+下面这个例子是在SHA-256摘要上进行操作，请记住，比特币特指的H函数是一个256位哈西函数，同时也是个双重哈西函数(<a href="http://davidederosa.com/basic-blockchain-programming/bytes-and-hashes/">这里</a>有关于哈西函数的解释文章)</p>
+
+<!-- more -->
+
+
+<h4>签名过程</h4>
+
+<p>第一步把我们的消息放入一个文件：<a href="https://github.com/keeshux/basic-blockchain-programming/blob/master/ex-message.txt">ex-message.txt</a>:</p>
+
+<p><code>
+This is a very confidential message
+</code></p>
+
+<p>它的SHA-256摘要是(别忘了末尾的换行符：\n):</p>
+
+<p><code>
+45 54 81 3e 91 f3 d5 be
+79 0c 7c 60 8f 80 b2 b0
+0f 3e a7 75 12 d4 90 39
+e9 e3 dc 45 f8 9e 2f 01
+</code></p>
+
+<p>之后，我们用私钥再给这段摘要签名：</p>
+
+<p><code>sh
+$ openssl dgst -sha256 -sign ec-priv.pem ex-message.txt &gt;ex-signature.der
+</code></p>
+
+<p>这个ex-signature.der文件就是DER格式的消息签名。
+OpenSSL可以对任何二进制格式进行DER编码，我在这里胜率这其中的细节。我们没有必要指导ECDSA签名的语意，只需要记住这个签名实际上是一对非常大的数字(r,s)</p>
+
+<p>你可能已经察觉到这个签名在每次运行完程序后都不一样，这是因为，这个默认的签名过程是非确定性的。这有在给区块链交易信息签名的时候可能导致问题，因为签名是交易数据段的一部分，你应该还记得交易数据段哈西映射后转化到txid的过程。结果是这个txid在你每签名一个交易时都会变化。这种现象就是所谓的交易延展性。</p>
+
+<p>用-hex参数可以显示签名的16进制格式:</p>
+
+<p><code>sh
+$ openssl dgst -sha256 -hex -sign ec-priv.pem ex-message.txt
+</code></p>
+
+<p>为了使结果可以重复利用，最好将DER文件按16进制格式导出:</p>
+
+<p><code>sh
+$ hexdump ex-signature.der
+</code></p>
+
+<h4>验证过程</h4>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[区块链基础编程 - 椭圆曲线密钥]]></title>
     <link href="http://iyunbo.github.io/Blockchain/2016/08/20/basic-blockchain-programming/"/>
     <updated>2016-08-20T20:22:00+02:00</updated>
     <id>http://iyunbo.github.io/Blockchain/2016/08/20/basic-blockchain-programming</id>
-    <content type="html"><![CDATA[<p>以下为翻译文章，英文原版链接在<a href="http://davidederosa.com/basic-blockchain-programming">这里</a></p>
-
-<h3>基本概念</h3>
-
-<p>作为一个新用户，你可以马上开始使用比特币，而不用理解其中的技术细节。首先你安装一个比特币钱包在你的计算机或者手机里面，比特币钱包会自动生成你的第一个比特币地址，之后你随时都可以再创建新的地址了。你还可以将地址分享给你的朋友，让他们可以和你之间实现互相支付。实际上，这有点像电子邮件的运行机制，除了一点，比特币的地址只能使用一次。
-<img class="img-responsive" src="http://davidederosa.com/s/f/bitcoin/bitcoin-150.png" alt="Bitcoin"></p>
+    <content type="html"><![CDATA[<p>以下为翻译文章，英文原版链接在<a href="http://davidederosa.com/basic-blockchain-programming/elliptic-curve-keys/">这里</a></p>
 
 <h3>通过代码生成密钥对</h3>
 

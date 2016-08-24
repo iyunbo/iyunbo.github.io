@@ -126,6 +126,61 @@
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2016-08-21T18:32:00+02:00" pubdate data-updated="true">Aug 21<span>st</span>, 2016</time>
+        
+           | <a href="/Blockchain/2016/08/21/basic-blockchain-elliptic-curve-digital-signatures/#disqus_thread"
+             data-disqus-identifier="http://iyunbo.github.io/Blockchain/2016/08/21/basic-blockchain-elliptic-curve-digital-signatures/">Comments</a>
+        
+      </p>
+    
+    
+      <h1 class="entry-title"><a href="/Blockchain/2016/08/21/basic-blockchain-elliptic-curve-digital-signatures/">区块链基础编程 - 椭圆曲线数字签名</a></h1>
+    
+  </header>
+
+
+  <div class="entry-content clearfix"><p>以下为翻译文章，英文原版链接在<a href="http://davidederosa.com/basic-blockchain-programming/elliptic-curve-digital-signatures/">这里</a></p>
+
+<h3>椭圆曲线数字签名</h3>
+
+<p>现在你已经可以生成EC密钥对，下一步就是用它来签名和验证消息。我说的消息是指任何数据，文字或者二进制，总之是需要证伪的信息。比特币客户端用电子签名来认证交易，矿工则用它来授权并广播他们的有效交易记录。
+这篇文章只设计通用消息。之后，我们会在比特币交易签名流程中了解到都有哪些不同的消息。</p>
+
+<h4>ECDSA 签名</h4>
+
+<p>很容易理解EC签名算法的简称是ECDSA，全称是椭圆曲线数字签名算法。在这个算法里面，所有参与者都得在一个哈希函数H上取得共识，因为我们要签名的是消息的哈希映射，而不是消息本身。如果只是签署方S有访问私钥的权限，而签署方V保管着对应的公钥，这是没有意义的。我将继续使用上一章生成的私钥和公钥。
+下面这个例子是在SHA-256摘要上进行操作，请记住，比特币特指的H函数是一个256位哈西函数，同时也是个双重哈西函数(<a href="http://davidederosa.com/basic-blockchain-programming/bytes-and-hashes/">这里</a>有关于哈西函数的解释文章)</p>
+
+</div>
+  
+  
+    <footer>
+      <a class="btn btn-default" rel="full-article" href="/Blockchain/2016/08/21/basic-blockchain-elliptic-curve-digital-signatures/">Read more &rarr;</a>
+    </footer>
+  
+
+
+        </article>
+      
+      
+        <article class="post">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2016-08-20T20:22:00+02:00" pubdate data-updated="true">Aug 20<span>th</span>, 2016</time>
         
            | <a href="/Blockchain/2016/08/20/basic-blockchain-programming/#disqus_thread"
@@ -134,17 +189,12 @@
       </p>
     
     
-      <h1 class="entry-title"><a href="/Blockchain/2016/08/20/basic-blockchain-programming/">区块链基础编程</a></h1>
+      <h1 class="entry-title"><a href="/Blockchain/2016/08/20/basic-blockchain-programming/">区块链基础编程 - 椭圆曲线密钥</a></h1>
     
   </header>
 
 
-  <div class="entry-content clearfix"><p>以下为翻译文章，英文原版链接在<a href="http://davidederosa.com/basic-blockchain-programming">这里</a></p>
-
-<h3>基本概念</h3>
-
-<p>作为一个新用户，你可以马上开始使用比特币，而不用理解其中的技术细节。首先你安装一个比特币钱包在你的计算机或者手机里面，比特币钱包会自动生成你的第一个比特币地址，之后你随时都可以再创建新的地址了。你还可以将地址分享给你的朋友，让他们可以和你之间实现互相支付。实际上，这有点像电子邮件的运行机制，除了一点，比特币的地址只能使用一次。
-<img class="img-responsive" src="http://davidederosa.com/s/f/bitcoin/bitcoin-150.png" alt="Bitcoin"></p>
+  <div class="entry-content clearfix"><p>以下为翻译文章，英文原版链接在<a href="http://davidederosa.com/basic-blockchain-programming/elliptic-curve-keys/">这里</a></p>
 
 <h3>通过代码生成密钥对</h3>
 
@@ -331,55 +381,6 @@
 
         </article>
       
-      
-        <article class="post">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-06-13T23:00:00+02:00" pubdate data-updated="true">Jun 13<span>th</span>, 2014</time>
-        
-           | <a href="/2014/06/13/recommended-programming-courses-from-cousera/#disqus_thread"
-             data-disqus-identifier="http://iyunbo.github.io/2014/06/13/recommended-programming-courses-from-cousera/">Comments</a>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/2014/06/13/recommended-programming-courses-from-cousera/">Recommended Programming Courses From Cousera</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><p><img class="img-rounded img-responsive" src="https://www.coursera.org//maestro/api/course/971469/logo"></img></p>
-
-<blockquote><p><a href="https://www.coursera.org">Coursera</a> is an education platform that partners with top universities and organizations worldwide, to offer courses online for anyone to take, for free.</p>
-
-<p><em>www.coursera.org</em></p></blockquote>
-
-</div>
-  
-  
-    <footer>
-      <a class="btn btn-default" rel="full-article" href="/2014/06/13/recommended-programming-courses-from-cousera/">Read more &rarr;</a>
-    </footer>
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -403,15 +404,15 @@
   
   <div id="recent_posts" class="list-group">
     
-    <a class="list-group-item " href="/Blockchain/2016/08/20/basic-blockchain-programming/">区块链基础编程</a>
+    <a class="list-group-item " href="/Blockchain/2016/08/21/basic-blockchain-elliptic-curve-digital-signatures/">区块链基础编程 - 椭圆曲线数字签名</a>
+    
+    <a class="list-group-item " href="/Blockchain/2016/08/20/basic-blockchain-programming/">区块链基础编程 - 椭圆曲线密钥</a>
     
     <a class="list-group-item " href="/Blockchain/2016/03/01/how-does-bitcoin-work/">5分钟看懂比特币原理</a>
     
     <a class="list-group-item " href="/BigData/In-Memory/2015/03/21/big-data-analytics-with-ActivePivot/">基于ActivePivot的内存分析技术</a>
     
     <a class="list-group-item " href="/Linux/Virtualization/2014/06/14/ship-software-faster-with-container/">Ship Software Faster With Container</a>
-    
-    <a class="list-group-item " href="/2014/06/13/recommended-programming-courses-from-cousera/">Recommended Programming Courses From Cousera</a>
     
   </div>
 </section>
@@ -431,7 +432,7 @@
 	<hr>
 	<section>
  		<h3>tags</h3>
-    	<ul id="category-list" ><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/bigdata'>BigData (1)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/blockchain'>Blockchain (2)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/in-memory'>In-Memory (1)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/j2ee'>J2EE (1)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/linux'>Linux (3)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/oracle'>Oracle (1)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/project'>Project (1)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/ruby'>Ruby (1)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/virtualization'>Virtualization (1)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/web'>Web (3)</a></li></ul></ul>
+    	<ul id="category-list" ><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/bigdata'>BigData (1)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/blockchain'>Blockchain (3)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/in-memory'>In-Memory (1)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/j2ee'>J2EE (1)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/linux'>Linux (3)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/oracle'>Oracle (1)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/project'>Project (1)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/ruby'>Ruby (1)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/virtualization'>Virtualization (1)</a></li></ul><ul class='list-unstyled'><li><a class='label label-primary' href='/blog/categories/web'>Web (3)</a></li></ul></ul>
 	</section>
 </div>
       
