@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blockchain | iyunbo - design with code]]></title>
   <link href="http://iyunbo.github.io/blog/categories/blockchain/atom.xml" rel="self"/>
   <link href="http://iyunbo.github.io/"/>
-  <updated>2016-08-24T22:06:22+02:00</updated>
+  <updated>2016-08-24T22:08:59+02:00</updated>
   <id>http://iyunbo.github.io/</id>
   <author>
     <name><![CDATA[Yunbo WANG]]></name>
@@ -18,7 +18,7 @@
     <link href="http://iyunbo.github.io/Blockchain/2016/08/21/basic-blockchain-elliptic-curve-digital-signatures/"/>
     <updated>2016-08-21T18:32:00+02:00</updated>
     <id>http://iyunbo.github.io/Blockchain/2016/08/21/basic-blockchain-elliptic-curve-digital-signatures</id>
-    <content type="html"><![CDATA[<p>以下为翻译文章，英文原版链接在<a href="http://davidederosa.com/basic-blockchain-programming/elliptic-curve-digital-signatures/">这里</a></p>
+    <content type="html"><![CDATA[<p><strong>以下为翻译文章，英文原版链接在<a href="http://davidederosa.com/basic-blockchain-programming/elliptic-curve-digital-signatures/">这里</a>,文章中的“我”指的是原文作者</strong></p>
 
 <h3>椭圆曲线数字签名</h3>
 
@@ -82,7 +82,7 @@ $ hexdump ex-signature.der
     <link href="http://iyunbo.github.io/Blockchain/2016/08/20/basic-blockchain-programming/"/>
     <updated>2016-08-20T20:22:00+02:00</updated>
     <id>http://iyunbo.github.io/Blockchain/2016/08/20/basic-blockchain-programming</id>
-    <content type="html"><![CDATA[<p>以下为翻译文章，英文原版链接在<a href="http://davidederosa.com/basic-blockchain-programming/elliptic-curve-keys/">这里</a></p>
+    <content type="html"><![CDATA[<p><strong>以下为翻译文章，英文原版链接在<a href="http://davidederosa.com/basic-blockchain-programming/elliptic-curve-keys/">这里</a>,文章中的“我”指的是原文作者</strong></p>
 
 <h3>通过代码生成密钥对</h3>
 
